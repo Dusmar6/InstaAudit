@@ -42,6 +42,8 @@ class Account:
                 data = query_response.json()
                 # Get new media and update end_cursor
                 print('DEBUG: old end_cursor =', self.end_cursor)
+                if self.end_cursor is None:
+                    break
                 self.end_cursor = data['data']['user']['edge_owner_to_timeline_media']['page_info']['end_cursor']
                 for j in range(len(data['data']['user']['edge_owner_to_timeline_media']['edges'])):
                     post = {
