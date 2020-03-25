@@ -2,9 +2,9 @@ import urllib.parse
 
 from InstaAuditScraper.Instagram import Instagram
 
-MEDIA_QUERY_URL = 'https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables=%s'
-
 class Account:
+
+    MEDIA_QUERY_URL = 'https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables=%s'
 
     def __init__(self, username: str, ig: Instagram, amt: int) -> None:
         data = ig.get_account(username)
@@ -36,9 +36,9 @@ class Account:
             """
         if not flag:
             while True:
-                print(MEDIA_QUERY_URL % urllib.parse.quote('{"id":"%s","first":12,"after":"%s"}' % (self.id, self.end_cursor)))
+                print(self.MEDIA_QUERY_URL % urllib.parse.quote('{"id":"%s","first":12,"after":"%s"}' % (self.id, self.end_cursor)))
                 # Construct graphql url by encoding the variables id, first, and after
-                query_response = ig.session.get(MEDIA_QUERY_URL % urllib.parse.quote('{"id":"%s","first":12,"after":"%s"}' % (self.id, self.end_cursor)))
+                query_response = ig.session.get(self.MEDIA_QUERY_URL % urllib.parse.quote('{"id":"%s","first":12,"after":"%s"}' % (self.id, self.end_cursor)))
                 data = query_response.json()
                 # Get new media and update end_cursor
                 print('DEBUG: old end_cursor =', self.end_cursor)
