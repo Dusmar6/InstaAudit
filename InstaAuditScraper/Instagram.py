@@ -15,7 +15,7 @@ class Instagram():
         headers = {
             'referer': self.BASE_URL,
         }
-        self.user_agent = 'Instagram 126.0.0.25.121 Android (23/6.0.1; 320dpi; 720x1280; samsung; SM-A310F; a3xelte; samsungexynos7580; en_GB; 110937453)'
+        self.user_agent = 'Instagram 134.0.0.25.116 (iPhone11,8; iOS 13_3_1; en_US; en-US; scale=2.00; 828x1792; 204771128) AppleWebKit/420+'
         headers['user-agent'] = self.user_agent
 
         self.sleep_between_requests = sleep_between_requests
