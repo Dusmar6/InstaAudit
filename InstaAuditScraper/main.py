@@ -10,15 +10,20 @@ SLEEP_BETWEEN_REQUESTS = 3
 
 ig = Instagram(SLEEP_BETWEEN_REQUESTS)
 sesh = requests.session()
-# ig.generate_headers(sesh)
-
-account = Account('walmart', ig, 1)
-for i in range(len(account.posts)):
-    print(account.posts[i])
-
+accounts = ['gucci', 'burberry', 'givenchyofficial', 'off____white', 'ysl', 'supremenewyork', 'bape_us', 'louisvuitton']
+# accounts = ['gucci']
+total_posts_gathered = 0
+for account in accounts:
+    profile = Account(account, ig, 10)
+    # profile = Account(account, ig, 100)
+    for i in range(len(profile.posts)):
+        print(profile.posts[i])
+    GetPost('posts', profile.posts)
+    total_posts_gathered += len(profile.posts)
+print('DEBUG: %d posts gathered in %d seconds' % (total_posts_gathered, time.perf_counter()))
 # print(account.posts[0]['edge_media_preview_like'])
-GetPost('posts', account.posts)
-print('DEBUG: %d posts gathered in %d seconds' % (len(account.posts), time.perf_counter()))
+
+
 
 #01cc910ad92e.js
 #queryID = e769aa130647d2354c40ea6a439bfc08
