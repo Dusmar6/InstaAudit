@@ -8,6 +8,17 @@ cars = pd.read_csv('cars.csv')
 
 print(cars)
 
+# Create Plot
+fig = cars[cars.maker=='America'].plot(kind='scatter', x='horsepower', y='weight', color='purple', label='America')
+cars[cars.maker=='Europe'].plot(kind='scatter', x='horsepower', y='weight', color='red', label='Europe', ax=fig)
+cars[cars.maker=='Asia'].plot(kind='scatter', x='horsepower', y='weight', color='green', label='Asia', ax=fig)
+fig.set_xlabel("Car Horsepower")
+fig.set_ylabel("Car Weight")
+fig.set_title("Car Horsepower vs Weight")
+fig = plt.gcf()
+fig.set_size_inches(10,6)
+plt.show()
+
 X = cars[['modelyear', 'acceleration', 'weight', 'horsepower', 'displacement', 'cylinders']]
 
 y = cars[['mpg']]  # 1=GOOD, 2=OK, 3=BAD
@@ -22,13 +33,4 @@ y_pred = clsDT.predict(X_test)
 
 print("Accuracy is ", accuracy_score(y_test, y_pred) * 100)
 
-# Create Plot
-fig = cars[cars.maker=='America'].plot(kind='scatter', x='horsepower', y='weight', color='purple', label='America')
-cars[cars.maker=='Europe'].plot(kind='scatter', x='horsepower', y='weight', color='red', label='Europe', ax=fig)
-cars[cars.maker=='Asia'].plot(kind='scatter', x='horsepower', y='weight', color='green', label='Asia', ax=fig)
-fig.set_xlabel("Car Horsepower")
-fig.set_ylabel("Car Weight")
-fig.set_title("Car Horsepower vs Weight")
-fig = plt.gcf()
-fig.set_size_inches(10,6)
-plt.show()
+
