@@ -1,5 +1,7 @@
-# To run the cars example
+# Predicting MPG
 
-- Download cars.csv
-- Either place it in the code folder, or modify the script such that the file-path variable points to it.
+Using the Decision Tree model, we can estimate the the MPG of a car going by its characteristics. With decision tree, we achieved an accuracy level of 62%
+
+- Download Cars.py and cars.csv
+- Either place them together in one folder, or modify the script such that the file-path variable points to cars.csv.
 
