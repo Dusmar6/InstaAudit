@@ -1,4 +1,4 @@
-# Predicting MPG
+# Predicting MPG using vehicle characteristics
 
 Using the Decision Tree model, we can estimate the the MPG of a car going by its characteristics. With decision tree, we achieved an accuracy level of 62%
 
