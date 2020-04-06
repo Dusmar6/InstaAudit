@@ -1,0 +1,5 @@
+# To run the cars example
+
+- Download cars.csv
+- Either place it in the code folder, or modify the script such that the file-path variable points to it.
+
