@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 import matplotlib.pyplot as plt
+from sklearn import preprocessing 
 
 cars = pd.read_csv('cars.csv')
 
@@ -18,6 +19,18 @@ fig.set_title("Car Horsepower vs Weight")
 fig = plt.gcf()
 fig.set_size_inches(10,6)
 plt.show()
+
+cars.maker.unique()
+
+le = preprocessing.LabelEncoder() 
+selected_col = ['maker'] 
+cars[selected_col] = cars[selected_col].apply(le.fit_transform)
+
+plt.figure(figsize=(7,4))  
+sns.heatmap(cars.corr(), annot=True, cmap='PiYG') 
+plt.show()
+
+cars.describe()
 
 X = cars[['modelyear', 'acceleration', 'weight', 'horsepower', 'displacement', 'cylinders']]
 
