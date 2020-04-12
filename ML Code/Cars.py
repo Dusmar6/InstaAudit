@@ -4,6 +4,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 import matplotlib.pyplot as plt
 from sklearn import preprocessing 
+import seaborn as sns
 
 cars = pd.read_csv('cars.csv')
 
@@ -30,7 +31,7 @@ plt.figure(figsize=(7,4))
 sns.heatmap(cars.corr(), annot=True, cmap='PiYG') 
 plt.show()
 
-cars.describe()
+print(cars.describe())
 
 X = cars[['modelyear', 'acceleration', 'weight', 'horsepower', 'displacement', 'cylinders']]
 
@@ -44,6 +45,6 @@ clsDT.fit(X_train, y_train)
 
 y_pred = clsDT.predict(X_test)
 
-print("Accuracy is ", accuracy_score(y_test, y_pred) * 100)
+print("\nAccuracy is ", accuracy_score(y_test, y_pred) * 100)
 
 
