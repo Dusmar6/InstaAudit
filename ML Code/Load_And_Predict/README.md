@@ -1,4 +1,4 @@
-1. Start up a new Google Colab Notebook.
+1. Start up a new Google Colab Notebook. https://colab.research.google.com/notebooks/intro.ipynb#recent=true
 
 2. select "file" then click "open notebook" navigate to the downloaded "Handwritten_Load_And_Predict.ipynb" file and open it.
 
