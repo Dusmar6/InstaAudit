@@ -5,3 +5,6 @@
 
 TODO: CSS isn't working as intended
 TODO: "/login" page does not have the functionality to swap between Sign In and Sign Up form
+
+
+Important: MongoDB connection string in "/backend/config/keys.js"
