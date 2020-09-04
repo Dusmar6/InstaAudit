@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LandingVid from "./video/background.mp4";
+import LandingVid from "./media/background.mp4";
 import { Link } from "react-router-dom";
 
 
