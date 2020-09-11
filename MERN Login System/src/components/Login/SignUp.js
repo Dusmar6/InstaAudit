@@ -142,7 +142,7 @@ const SignUp = () => {
             </div>
             </form>
         </div>
-        <Box mt={3}>
+        <Box mt={28}>
             <Copyright />
         </Box>
         </Container>

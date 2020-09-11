@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp.js';
+import Dash from './components/Dashboard/Dash.js'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
@@ -31,11 +32,17 @@ const App = () => {
     <ThemeContextProvider value={lightTheme}>
       <Router>
         <Switch>
+        <Route path='/' exact strict>
+            <SignUp></SignUp>
+          </Route>
           <Route path='/users/sign-in' exact strict>
             <SignIn></SignIn>
           </Route>
           <Route path='/users/sign-up' exact strict>
             <SignUp></SignUp>
+          </Route>
+          <Route path='/dashboard' exact strict>
+            <Dash></Dash>
           </Route>
         </Switch>
       </Router>

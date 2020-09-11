@@ -84,7 +84,7 @@ const SignIn = () => {
         <CssBaseline />
         <div className={classes.paper}>
             <Typography component="h1" variant="h5">
-            Sign in
+            Sign In
             </Typography>
             <form className={classes.form} onSubmit={handleSubmit} noValidate>
             <TextField
