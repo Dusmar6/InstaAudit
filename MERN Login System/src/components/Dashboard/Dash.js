@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -29,31 +29,28 @@ const SignIn = () => {
         },
     ]);
 
-    const classes = useStyles();
-
     const handleInputChange = e => {
-        // console.log('event.target:', e.target);
-        // console.log('event.target.value:', e.target.value);
-        const { name, value } = e.target
+        console.log('event.target:', e.target);
+        console.log('event.target.value:', e.target.value);
+        const { filename, value } = e.target
         setFormData(prevState => ({
             ...prevState,
-            [name] : value
+            [filename] : value
         }))
     }
 
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     if(!formData) return;
-    //     // console.log('Working');
-    //     // console.log(formData.email);
-    //     // console.log(formData.password);
-    //     axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
-    //     .then(response => {
-    //       console.log(response.data);
-    //     }).catch(error => {
-    //       console.log(error.response.data);
-    //     });
-    // }
+    const handleSubmit = e => {
+        e.preventDefault();
+        if(!formData) return;
+        console.log('Working');
+        console.log(formData.data);
+        axios.post('http://localhost:5000/api/dashboard', JSON.parse(`{"image": "${formData.email}", "password": "${formData.password}"}`))
+        .then(response => {
+          console.log(response.data);
+        }).catch(error => {
+          console.log(error.response.data);
+        });
+    }
     
     return (
         <div class="container">
@@ -61,7 +58,6 @@ const SignIn = () => {
             <div class="col-sm-8 mt-3">
 
             <form class="mt-4"
-                action="/upload"
                 method="POST"
                 enctype="multipart/form-data"
             >
@@ -73,7 +69,7 @@ const SignIn = () => {
                     class="form-control-file border"
                 />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
             </form>
             </div>
         </div>
