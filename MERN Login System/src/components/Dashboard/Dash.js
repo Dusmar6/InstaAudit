@@ -19,67 +19,67 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignIn = () => {
-    console.log('themeContext:');
+    // console.log('themeContext:');
   
+    const [fileName, setFileName] = useState(null);
+    // const [formData, setFormData] = useState([
+    //   {
+    //     filename: null,
+    //     file: null
+    //   },
+    // ]);
 
-    const [formData, setFormData] = useState([
-        {
-        email: null,
-        password: null
-        },
-    ]);
 
-    const handleInputChange = e => {
-        console.log('event.target:', e.target);
-        console.log('event.target.value:', e.target.value);
-        const { filename, value } = e.target
-        setFormData(prevState => ({
-            ...prevState,
-            [filename] : value
-        }))
+    const handleFileChange = event => {
+      setFileName(event.target.files[0]);
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        if(!formData) return;
-        console.log('Working');
-        console.log(formData.data);
-        axios.post('http://localhost:5000/api/dashboard', JSON.parse(`{"image": "${formData.email}", "password": "${formData.password}"}`))
-        .then(response => {
-          console.log(response.data);
-        }).catch(error => {
-          console.log(error.response.data);
-        });
+    const fileUploadHandler = event => {
+      event.preventDefault();
+      if(!fileName) return;
+      console.log("Form data is not empty");
+      console.log(fileName);
+      axios.post('http://localhost:5000/api/upload-image', JSON.parse(`{"image": "${fileName}}`))
+      .then(response => {
+        console.log(response.data);
+      }).catch(error => {
+        console.log(error.response.data);
+      });
+
     }
-    
+
     return (
-        <div class="container">
-        <div class="row">
-            <div class="col-sm-8 mt-3">
+      <div>
+        <input type="file" onChange={handleFileChange}/>
+        <button class="btn btn-primary" onClick={fileUploadHandler}>Upload</button>
+      </div>
+        // <div class="container">
+        // <div class="row">
+        //     <div class="col-sm-8 mt-3">
 
-            <form class="mt-4"
-                method="POST"
-                enctype="multipart/form-data"
-            >
-                <div class="form-group">
-                <input
-                    type="file"
-                    name="file"
-                    id="input-files"
-                    class="form-control-file border"
-                />
-                </div>
-                <button type="submit" class="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
-            </form>
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-sm-12">
-            <div class="preview-images"></div>
-            </div>
-        </div>
-        </div>
+        //     <form class="mt-4"
+        //         method="POST"
+        //         enctype="multipart/form-data"
+        //     >
+        //         <div class="form-group">
+        //         <input
+        //             type="file"
+        //             name="file"
+        //             id="input-files"
+        //             class="form-control-file border"
+        //         />
+        //         </div>
+        //         <button type="submit" class="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
+        //     </form>
+        //     </div>
+        // </div>
+        // <hr />
+        // <div class="row">
+        //     <div class="col-sm-12">
+        //     <div class="preview-images"></div>
+        //     </div>
+        // </div>
+        // </div>
     );
 }
 
