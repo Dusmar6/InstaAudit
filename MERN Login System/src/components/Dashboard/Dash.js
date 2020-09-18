@@ -19,16 +19,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignIn = () => {
-    // console.log('themeContext:');
   
     const [fileName, setFileName] = useState(null);
-    // const [formData, setFormData] = useState([
-    //   {
-    //     filename: null,
-    //     file: null
-    //   },
-    // ]);
-
 
     const handleFileChange = event => {
       setFileName(event.target.files[0]);
@@ -53,33 +45,6 @@ const SignIn = () => {
         <input type="file" onChange={handleFileChange}/>
         <button class="btn btn-primary" onClick={fileUploadHandler}>Upload</button>
       </div>
-        // <div class="container">
-        // <div class="row">
-        //     <div class="col-sm-8 mt-3">
-
-        //     <form class="mt-4"
-        //         method="POST"
-        //         enctype="multipart/form-data"
-        //     >
-        //         <div class="form-group">
-        //         <input
-        //             type="file"
-        //             name="file"
-        //             id="input-files"
-        //             class="form-control-file border"
-        //         />
-        //         </div>
-        //         <button type="submit" class="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
-        //     </form>
-        //     </div>
-        // </div>
-        // <hr />
-        // <div class="row">
-        //     <div class="col-sm-12">
-        //     <div class="preview-images"></div>
-        //     </div>
-        // </div>
-        // </div>
     );
 }
 

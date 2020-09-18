@@ -26,9 +26,9 @@ module.exports = function validateImageUpload(data) {
 
     // Image Check
     if (Validator.isEmpty(data.image)) {
-        errors.email = "No image selected for upload";
-    } else if (!Validator.isEmail(data.email)) {
-        errors.email = "Email is invalid";
+        errors.image = "No image selected for upload";
+    } else if (!Validator.isImage(data.image)) {
+        errors.image = "Email is invalid";
     }
 
     return {
