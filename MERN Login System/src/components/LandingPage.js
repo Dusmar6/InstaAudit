@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LandingVid from "./media/background.mp4";
+// import LandingVid from "./media/background.mp4";
 import { Link } from "react-router-dom";
 
 
@@ -24,14 +24,14 @@ class LandingPage extends Component  {
                     zIndex: "-1",
                     opacity: "0.6"
                 }}>
-                    <source src={LandingVid} type="video/mp4"/>
+                    {/* <source src={LandingVid} type="video/mp4"/> */}
                 </video>
                 <div style={{position: "relative"}}>
                     <h1 type="center" style={{position: "center", fontSize: "20", color: "#bdc3c7"}}>Placeholder Text Click Anywhere to get Started</h1>
                     {/* <text type="center" style={{fontSize: "11", color: "#85D5D6", outline: "22px", outlineColor: "#fff"}}>Get Started</text> */}
                 </div>
                 <div>
-                    <Link to="/login" strict exact>
+                    <Link to="/users/sign-in" strict exact>
                         <button onClick={this.onSubmit}style={{position: "absolute", left: "0px", top: "0px", width: "100vw", height: "100vh", background: "#fff", opacity: "0"}}></button>
                     </Link>
                 </div> 
