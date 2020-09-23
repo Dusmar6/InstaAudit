@@ -1,37 +1,33 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import FormData from 'form-data';
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(38),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(2),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
-  },
-}));
+
+let data = new FormData();
 
 const Dash = () => {
   
-    const [fileName, setFileName] = useState(null);
+    const [fileData, setFileData] = useState(null);
 
     const handleFileChange = event => {
-      setFileName(event.target.files[0]);
+      setFileData(event.target.files[0]);
+      
+      data.append('file', fileData);
     }
 
     const fileUploadHandler = event => {
       event.preventDefault();
-      if(!fileName) return;
+      if(!fileData) return;
       console.log("Form data is not empty");
-      console.log(fileName);
-      axios.post('http://localhost:5000/api/upload-image', JSON.parse(`{"image": "${fileName}}`))
+      console.log(fileData);
+
+      let headers = {
+        'accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+      }
+      axios.post('http://localhost:5000/api/upload-image', fileData, headers)
       .then(response => {
         console.log(response.data);
       }).catch(error => {

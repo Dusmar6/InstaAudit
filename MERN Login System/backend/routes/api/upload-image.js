@@ -7,38 +7,32 @@ const validateImageUpload = require('../../validation/ImageUpload');
 
 const Image = require('../../models/upload-image.model');
 
-router.post("/upload-image", (req, res) => {
+router.post('/', (req, res) => {
 
   // Form validation
-  const { errors, isValid } = validateImageUpload(req.body);
+  // const { errors, isValid } = validateImageUpload(req.body);
 
   // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
+  console.log('started');
 
-//   User.findOne({ email: req.body.email }).then(user => {
-//     if (user) {
-//       return res.status(400).json({ email: "Email already exists" });
-//     } else {
-//       const newUser = new User({
-//         email: req.body.email,
-//         password: req.body.password
-//       });
+  Image.findOne({ image: req.body }).then(image => {
+    
+    if (!image) {
+      return res.status(400).json({ image: "Image not selected" });
+    } 
 
-//       // Hash password before saving in database
-//       bcrypt.genSalt(10, (err, salt) => {
-//         bcrypt.hash(newUser.password, salt, (err, hash) => {
-//           if (err) throw err;
-//           newUser.password = hash;
-//           newUser
-//             .save()
-//             .then(user => res.json(user))
-//             .catch(err => console.log(err));
-//         });
-//       });
-//     }
-//   });
+    else {
+      const newImage = new Image({
+        name: req.body.name,
+        img: req.body.img
+      });
+      newImage.save().then(image => res.json(image)).catch(err => console.log(err));
+    }
+
+  });
 });
 
 // router.post("/sign-in", (req, res) => {

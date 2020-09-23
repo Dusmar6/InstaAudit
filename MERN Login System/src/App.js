@@ -42,7 +42,7 @@ const App = () => {
           <Route path='/users/sign-up' exact strict>
             <SignUp></SignUp>
           </Route>
-          <Route path='/dashboard' exact strict>
+          <Route path='/api/dashboard' exact strict>
             <Dash></Dash>
           </Route>
         </Switch>
