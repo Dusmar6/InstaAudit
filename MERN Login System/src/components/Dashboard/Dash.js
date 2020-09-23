@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = () => {
+const Dash = () => {
   
     const [fileName, setFileName] = useState(null);
 
@@ -48,4 +48,4 @@ const SignIn = () => {
     );
 }
 
-export default SignIn;
+export default Dash;

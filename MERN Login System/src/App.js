@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp.js';
-import Dash from './components/Dashboard/Dash.js'
+import Dash from './components/Dashboard/Dash.js';
+import LandingPage from './components/Login/LandingPage.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
@@ -33,7 +34,7 @@ const App = () => {
       <Router>
         <Switch>
         <Route path='/' exact strict>
-            <SignUp></SignUp>
+            <LandingPage></LandingPage>
           </Route>
           <Route path='/users/sign-in' exact strict>
             <SignIn></SignIn>
