@@ -5,7 +5,7 @@ const keys = require("../../config/keys");
 
 const validateImageUpload = require('../../validation/ImageUpload');
 
-const Image = require('../../models/upload-image.model');
+const uploadImage = require('../../models/upload-image.model');
 
 router.post('/', (req, res) => {
 
@@ -16,18 +16,18 @@ router.post('/', (req, res) => {
   // if (!isValid) {
   //   return res.status(400).json(errors);
   // }
+
   console.log('started');
 
-  Image.findOne({ image: req.body }).then(image => {
+  uploadImage.findOne({ image: req.body }).then(image => {
     
     if (!image) {
       return res.status(400).json({ image: "Image not selected" });
     } 
 
     else {
-      const newImage = new Image({
-        name: req.body.name,
-        img: req.body.img
+      const newImage = new uploadImage({
+        file: req.body.file
       });
       newImage.save().then(image => res.json(image)).catch(err => console.log(err));
     }
