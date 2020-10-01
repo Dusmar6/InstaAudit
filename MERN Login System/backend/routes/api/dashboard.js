@@ -3,11 +3,11 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const keys = require("../../config/keys");
 
-const validateImageUpload = require('../../validation/ImageUpload');
+// const validateImageUpload = require('../../validation/ImageUpload');
 
-const uploadImage = require('../../models/upload-image.model');
+const ImageModel = require('../../models/upload-image.model');
 
-router.post('/', (req, res) => {
+router.post("/upload-image", (req, res) => {
 
   // Form validation
   // const { errors, isValid } = validateImageUpload(req.body);
@@ -18,21 +18,23 @@ router.post('/', (req, res) => {
   // }
 
   console.log('started');
-
-  uploadImage.findOne({ image: req.body }).then(image => {
-    
-    if (!image) {
-      return res.status(400).json({ image: "Image not selected" });
-    } 
-
-    else {
-      const newImage = new uploadImage({
-        file: req.body.file
-      });
-      newImage.save().then(image => res.json(image)).catch(err => console.log(err));
-    }
-
+  console.log(req.body);
+  const newImage = new ImageModel({
+    name: req.body.name,
+    img64: req.body.img64
   });
+  newImage.save().then(image => res.json(image)).catch(err => console.log(`newImage error: ${err}`));
+
+  // ImageModel.findOne({ name: req.body.name, img64: req.body.img64 }).then(name => {
+  //   console.log(name);
+  //   if (!name) {
+  //     return res.status(400).json({ error: "Image not selected" });
+  //   } 
+
+    // else {
+
+    // }
+
 });
 
 // router.post("/sign-in", (req, res) => {

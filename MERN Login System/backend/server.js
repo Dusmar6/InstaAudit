@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const app = express();
 const usersRouter = require('./routes/api/users');
+const imgRouter = require('./routes/api/dashboard');
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -35,6 +36,7 @@ require('./config/passport')(passport);
 
 // API Routes
 app.use('/api/users', usersRouter);
+app.use('/api/dashboard', imgRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
