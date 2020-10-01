@@ -5,11 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "serve":"nodemon server.js"
-=======
-    "serve": "nodemon server.js"
->>>>>>> 43b33ebf38194ede5782b0f215f54cdf1129b5d1
   },
   "keywords": [],
   "author": "",

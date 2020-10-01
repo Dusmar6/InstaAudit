@@ -1,33 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-<<<<<<< HEAD
-import auth from '../auth'
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(38),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(2),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
-  },
-}));
-
-const Dash = props => {
-  
-    const [fileName, setFileName] = useState(null);
-
-    const handleFileChange = event => {
-      setFileName(event.target.files[0]);
-    }
-=======
 import './Dash.css';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -36,7 +9,6 @@ const Dash = () => {
 
   const [baseImage, setBaseImage] = useState("");
   const { handleSubmit, register, errors } = useForm();
->>>>>>> 43b33ebf38194ede5782b0f215f54cdf1129b5d1
 
   const onSubmit = data => {
 
@@ -87,16 +59,6 @@ const Dash = () => {
 
     return (
       <div>
-<<<<<<< HEAD
-        <h1>Dashboard</h1>
-        <button onClick={() => {
-            auth.logout(() => {
-              props.history.push("/");
-            })
-        }}>Logout</button>
-        {/* <input type="file" onChange={handleFileChange}/>
-        <button class="btn btn-primary" onClick={fileUploadHandler}>Upload</button> */}
-=======
         <h2>File Upload & Image Preview</h2>
         <div>
           <form  onSubmit={handleSubmit(onSubmit)}>
@@ -106,7 +68,6 @@ const Dash = () => {
           </form>
           <img src={baseImage} height="300px" />
         </div>
->>>>>>> 43b33ebf38194ede5782b0f215f54cdf1129b5d1
       </div>
     );
 }

@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp.js';
 import Dash from './components/Dashboard/Dash.js';
-<<<<<<< HEAD
-import LandingPage from './components/LandingPage.js';
-=======
 import LandingPage from './components/Login/LandingPage.js';
->>>>>>> 43b33ebf38194ede5782b0f215f54cdf1129b5d1
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
@@ -38,24 +34,6 @@ const App = () => {
     <ThemeContextProvider value={lightTheme}>
       <Router>
         <Switch>
-<<<<<<< HEAD
-          <Route 
-            path='/' 
-            exact 
-            component={LandingPage}
-          />
-          <Route path='/users/sign-in' exact strict>
-              <SignIn></SignIn>
-            </Route>
-            <Route path='/users/sign-up' exact strict>
-              <SignUp></SignUp>
-            </Route>
-            <ProtectedRoute 
-              path='/dashboard' 
-              exact
-              component={Dash} 
-            />
-=======
         <Route path='/' exact strict>
             <LandingPage></LandingPage>
           </Route>
@@ -68,7 +46,6 @@ const App = () => {
           <Route path='/api/dashboard' exact strict>
             <Dash></Dash>
           </Route>
->>>>>>> 43b33ebf38194ede5782b0f215f54cdf1129b5d1
         </Switch>
       </Router>
     </ThemeContextProvider>
