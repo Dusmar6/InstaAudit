@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const UploadImageSchema = new Schema({
-    image: {type: Image(), required: true, unique: true},
+const ImageSchema = new Schema({
+    name: {type: String, required: true},
+    img64: {type: String, required: true}
 }, 
 {
   timestamps: true,
 });
 
-const UploadImageSchema = mongoose.model('image', UserSchema);
+const uploadImage = mongoose.model('image', ImageSchema);
 
-module.exports = UploadImageSchema;
+module.exports = uploadImage;

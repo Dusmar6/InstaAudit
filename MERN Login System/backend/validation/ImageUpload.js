@@ -20,19 +20,20 @@ let extension = getExtension(data);
 
 module.exports = function validateImageUpload(data) {
 
-    let errors = {};
+    // let errors = {};
+    console.log(`backend ${data.filename}`);
 
-    data.image = !isEmpty(data.image) ? data.image : null;
+    // data.image = !isEmpty(data.image) ? data.image : null;
 
-    // Image Check
-    if (Validator.isEmpty(data.image)) {
-        errors.image = "No image selected for upload";
-    } else if (!Validator.isImage(data.image)) {
-        errors.image = "Email is invalid";
-    }
+    // // Image Check
+    // if (Validator.isEmpty(data.image)) {
+    //     errors.image = "No image selected for upload";
+    // } else if (Validator.isImage(data.image)) {
+    //     errors.image = "Email is invalid";
+    // }
 
-    return {
-        errors,
-        isValid: isEmpty(errors)
-    };
+    // return {
+    //     errors,
+    //     isValid: isEmpty(errors)
+    // };
 };
