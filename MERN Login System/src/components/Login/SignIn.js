@@ -13,6 +13,8 @@ import Container from '@material-ui/core/Container';
 import './Login.css'; // Sets the background
 import axios from 'axios';
 import { ThemeContext } from '../contexts/ThemeContext';
+import auth from '../auth'
+import { withRouter } from "react-router-dom"
 
 function Copyright() {
   return (
@@ -42,10 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = () => {
+const SignIn = props => {
   console.log('themeContext:');
   
-
   const [formData, setFormData] = useState([
       {
       email: null,
@@ -117,15 +118,15 @@ const SignIn = () => {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
           />
-          <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
+          <button 
+                onClick={() => {
+                    auth.login(() => {
+                        props.history.push("/dashboard")
+                    });
+                }}
           >
-              Sign In
-          </Button>
+            Sign In
+          </button>
           <Grid container>
               <Grid item xs>
               <Link href="forgot-password" color="textSecondary" variant="body2">
@@ -147,4 +148,4 @@ const SignIn = () => {
   );
 }
 
-export default SignIn;
+export default withRouter(SignIn);

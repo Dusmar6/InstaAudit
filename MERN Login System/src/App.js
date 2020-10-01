@@ -7,12 +7,13 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import { ThemeContextProvider } from './components/contexts/ThemeContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   // signedIn = state & setSignedIn = setState
   const [signedIn, setSignedIn] = useState([
     {
-      signedIn: false
+      signedIn: "false"
     }
   ]);
 
@@ -33,18 +34,22 @@ const App = () => {
     <ThemeContextProvider value={lightTheme}>
       <Router>
         <Switch>
-        <Route path='/' exact strict>
-            <LandingPage></LandingPage>
-          </Route>
+          <Route 
+            path='/' 
+            exact 
+            component={LandingPage}
+          />
           <Route path='/users/sign-in' exact strict>
-            <SignIn></SignIn>
-          </Route>
-          <Route path='/users/sign-up' exact strict>
-            <SignUp></SignUp>
-          </Route>
-          <Route path='/dashboard' exact strict>
-            <Dash></Dash>
-          </Route>
+              <SignIn></SignIn>
+            </Route>
+            <Route path='/users/sign-up' exact strict>
+              <SignUp></SignUp>
+            </Route>
+            <ProtectedRoute 
+              path='/dashboard' 
+              exact
+              component={Dash} 
+            />
         </Switch>
       </Router>
     </ThemeContextProvider>
@@ -57,9 +62,8 @@ ReactDOM.render(
   document.querySelector('#root'),
 );
 
-// export default App;
-// class App extends Component {
-
+// // export default App;
+// export default class App extends Component {
 
 //   constructor(props) {
 //     super(props);
@@ -67,15 +71,27 @@ ReactDOM.render(
 
 //   render() {
 //     return (
-//         <Router>
-//           <Switch>
-//             {/* <Route path="/sign-in" exact strict component={SignIn}></Route> */}
-//             <Route path="/login" exact strict component={Login}></Route>
-//             <Route path="/" exact strict component={Login}></Route> {/*TODO: Send the user somewhere else if they're already logged in*/}
-//           </Switch>
-//         </Router>
+//       <Router>
+//         <Switch>
+//           <Route 
+//             path='/' 
+//             exact 
+//             strict
+//             render={(props) => 
+//               <LandingPage/>
+//             }
+//           />
+//           <Route path='/users/sign-in' exact strict>
+//               <SignIn></SignIn>
+//             </Route>
+//             <Route path='/users/sign-up' exact strict>
+//               <SignUp></SignUp>
+//             </Route>
+//             <Route path='/dashboard' exact strict>
+//               <Dash></Dash>
+//             </Route>
+//         </Switch>
+//       </Router>
 //     );
 //   }
 // }
-
-// export default App;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import auth from '../auth'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = () => {
+const Dash = props => {
   
     const [fileName, setFileName] = useState(null);
 
@@ -42,10 +43,16 @@ const SignIn = () => {
 
     return (
       <div>
-        <input type="file" onChange={handleFileChange}/>
-        <button class="btn btn-primary" onClick={fileUploadHandler}>Upload</button>
+        <h1>Dashboard</h1>
+        <button onClick={() => {
+            auth.logout(() => {
+              props.history.push("/");
+            })
+        }}>Logout</button>
+        {/* <input type="file" onChange={handleFileChange}/>
+        <button class="btn btn-primary" onClick={fileUploadHandler}>Upload</button> */}
       </div>
     );
 }
 
-export default SignIn;
+export default Dash;
