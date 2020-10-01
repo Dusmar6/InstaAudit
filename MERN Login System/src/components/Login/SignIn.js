@@ -121,7 +121,7 @@ const SignIn = props => {
           <button 
                 onClick={() => {
                     auth.login(() => {
-                        props.history.push("/dashboard")
+                        props.history.push("/api/dashboard")
                     });
                 }}
           >

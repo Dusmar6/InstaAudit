@@ -2,10 +2,12 @@ import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import './Dash.css';
+import auth from '../auth';
+import { withRouter } from "react-router-dom";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const Dash = () => {
+const Dash = props => {
 
   const [baseImage, setBaseImage] = useState("");
   const { handleSubmit, register, errors } = useForm();
@@ -68,8 +70,17 @@ const Dash = () => {
           </form>
           <img src={baseImage} height="300px" />
         </div>
+        <button 
+                onClick={() => {
+                    auth.login(() => {
+                        props.history.push("/")
+                    });
+                }}
+                >
+                  Logout
+                </button>
       </div>
     );
 }
 
-export default Dash;
+export default withRouter(Dash);
