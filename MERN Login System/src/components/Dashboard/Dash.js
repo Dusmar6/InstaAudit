@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import './Dash.css';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -58,13 +59,15 @@ const Dash = () => {
 
     return (
       <div>
-        <form  onSubmit={handleSubmit(onSubmit)}>
-          <input name="img" type="file" ref={register({validate: validateImage})} onChange={(e) => {uploadImage(e);}} />
-            {errors.img && window.alert(errors.img.message)}
-          <button type="submit">Submit</button>
-        </form>
-        <br></br>
-        <img src={baseImage} height="200px" />
+        <h2>File Upload & Image Preview</h2>
+        <div>
+          <form  onSubmit={handleSubmit(onSubmit)}>
+            <input name="img" type="file" ref={register({validate: validateImage})} onChange={(e) => {uploadImage(e);}} />
+              {errors.img && window.alert(errors.img.message)}
+            <button type="submit">Submit</button>
+          </form>
+          <img src={baseImage} height="300px" />
+        </div>
       </div>
     );
 }
