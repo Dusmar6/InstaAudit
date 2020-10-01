@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(1, 0, 2)
   },
 }));
 
@@ -118,7 +118,7 @@ const SignIn = props => {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
           />
-          <button 
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}
                 onClick={() => {
                     auth.login(() => {
                         props.history.push("/api/dashboard")
@@ -126,7 +126,7 @@ const SignIn = props => {
                 }}
           >
             Sign In
-          </button>
+          </Button>
           <Grid container>
               <Grid item xs>
               <Link href="forgot-password" color="textSecondary" variant="body2">
