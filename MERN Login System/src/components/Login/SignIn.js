@@ -46,105 +46,111 @@ const useStyles = makeStyles((theme) => ({
 
 const SignIn = props => {
   console.log('themeContext:');
-  
+
   const [formData, setFormData] = useState([
-      {
+    {
       email: null,
       password: null
-      },
+    },
   ]);
 
   const classes = useStyles();
 
   const handleInputChange = e => {
-      console.log('event.target:', e.target);
-      console.log('event.target.value:', e.target.value);
-      const { name, value } = e.target
-      setFormData(prevState => ({
-          ...prevState,
-          [name] : value
-      }))
+    console.log('event.target:', e.target);
+    console.log('event.target.value:', e.target.value);
+    const { name, value } = e.target
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
   }
 
   const handleSubmit = e => {
-      e.preventDefault();
-      if(!formData) return;
-      // console.log('Working');
-      // console.log(formData.email);
-      // console.log(formData.password);
-      axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
+    e.preventDefault();
+    if (!formData) return;
+    // console.log('Working');
+    // console.log(formData.email);
+    // console.log(formData.password);
+    axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
       .then(response => {
+        props.history.push("/api/dashboard")
         console.log(response.data);
       }).catch(error => {
+        manageModalState()
         console.log(error.response.data);
       });
   }
-  
+
+  const [modalState, setModalState] = useState(false);
+  const manageModalState = () => {
+    setModalState(!modalState)
+  }
+
   return (
-      <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5">
           Sign In
           </Typography>
-          <form className={classes.form} onSubmit={handleSubmit} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              onChange={handleInputChange}
-              value={formData.email}
-              autoFocus
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            onChange={handleInputChange}
+            value={formData.email}
+            autoFocus
           />
           <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              onChange={handleInputChange}
-              value={formData.password}
-              autoComplete="current-password"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            onChange={handleInputChange}
+            value={formData.password}
+            autoComplete="current-password"
           />
           <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
           />
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}
-                onClick={() => {
-                    auth.login(() => {
-                        props.history.push("/api/dashboard")
-                    });
-                }}
+          <Button
+            type="submit"
+            fullWidth variant="contained"
+            color="primary"
+            className={classes.submit}
           >
             Sign In
           </Button>
           <Grid container>
-              <Grid item xs>
+            <Grid item xs>
               <Link href="forgot-password" color="textSecondary" variant="body2">
-                  Forgot password?
+                Forgot password?
               </Link>
-              </Grid>
-              <Grid item>
-              <Link href="/users/sign-up"  color="textSecondary" variant="body2">
-                  {"Not registered? Sign Up"}
+            </Grid>
+            <Grid item>
+              <Link href="/users/sign-up" color="textSecondary" variant="body2">
+                {"Not registered? Sign Up"}
               </Link>
-              </Grid>
+            </Grid>
           </Grid>
-          </form>
+        </form>
       </div>
       <Box mt={31}>
-          <Copyright />
+        <Copyright />
       </Box>
-      </Container>
+    </Container>
   );
 }
 
