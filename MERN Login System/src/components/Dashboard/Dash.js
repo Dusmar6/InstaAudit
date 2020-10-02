@@ -35,7 +35,7 @@ const Dash = props => {
     let ext = fileName.substring(fileName.length - 3, fileName.length);
     console.log(fileName);
     console.log(`ext: ${ext}`);
-    if (ext === "png" || ext === "jpg") {
+    if (ext.toLowerCase() === "png" || ext.toLowerCase() === "jpg") {
       console.log("png or jpg")
       return true
     }
