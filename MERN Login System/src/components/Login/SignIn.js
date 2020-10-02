@@ -72,7 +72,7 @@ const SignIn = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!formData) return;
+    if (!formData.email) return;
     // console.log('Working');
     // console.log(formData.email);
     // console.log(formData.password);
