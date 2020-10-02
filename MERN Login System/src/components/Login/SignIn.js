@@ -15,6 +15,8 @@ import axios from 'axios';
 import { ThemeContext } from '../contexts/ThemeContext';
 import auth from '../auth'
 import { withRouter } from "react-router-dom"
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Copyright() {
   return (
@@ -43,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 0, 2)
   },
 }));
+
+toast.configure()
 
 const SignIn = props => {
   console.log('themeContext:');
@@ -77,14 +81,19 @@ const SignIn = props => {
         props.history.push("/api/dashboard")
         console.log(response.data);
       }).catch(error => {
-        manageModalState()
-        console.log(error.response.data);
+        notify(error.response.data.email)
+        notify(error.response.data.passwordincorrect)
+        console.log(error.response.data)
       });
   }
 
-  const [modalState, setModalState] = useState(false);
-  const manageModalState = () => {
-    setModalState(!modalState)
+  const notify = message => {
+    toast.error(
+      message,
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000
+      })
   }
 
   return (
