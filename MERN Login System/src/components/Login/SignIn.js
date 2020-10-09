@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer, createContext, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -13,16 +13,16 @@ import Container from '@material-ui/core/Container';
 import './Login.css'; // Sets the background
 import axios from 'axios';
 import { ThemeContext } from '../contexts/ThemeContext';
-import auth from '../auth'
-import { withRouter } from "react-router-dom"
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import auth from '../auth';
+import { withRouter } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         Insta Audit
       </Link>{' '}
       {new Date().getFullYear()}
@@ -48,8 +48,9 @@ const useStyles = makeStyles((theme) => ({
 
 toast.configure()
 
-const SignIn = props => {
-  console.log('themeContext:');
+const SignIn = React.memo((props) => {
+  // const [state, dispatch] = useGlobalState();
+
 
   const [formData, setFormData] = useState([
     {
@@ -70,6 +71,8 @@ const SignIn = props => {
     }))
   }
 
+  
+
   const handleSubmit = e => {
     e.preventDefault();
     if (!formData.email) return;
@@ -80,10 +83,15 @@ const SignIn = props => {
       .then(response => {
         props.history.push("/api/dashboard")
         console.log(response.data);
+        console.log(response.data.token);
+        // const s = {loggedIn: true, jwt: response.data.token, username: formData.email};
+        // setSession(s);
+        // dispatch({session: {email: formData.email, jwt: response.data.token}});
+        console.log(props);
       }).catch(error => {
+        console.log(error.response.data)
         notify(error.response.data.email)
         notify(error.response.data.passwordincorrect)
-        console.log(error.response.data)
       });
   }
 
@@ -161,6 +169,6 @@ const SignIn = props => {
       </Box>
     </Container>
   );
-}
+});
 
 export default withRouter(SignIn);

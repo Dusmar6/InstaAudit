@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import {App} from './App';
 
-export default this;
+
+ReactDOM.render(
+    <App />,
+    document.querySelector('#root'),
+);
