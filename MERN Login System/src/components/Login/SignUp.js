@@ -58,7 +58,7 @@ const theme = {
 
 toast.configure()
 
-const SignUp = props => {
+const SignUp = (props) => {
 
   const [formData, setFormData] = useState([
     {
@@ -93,6 +93,10 @@ const SignUp = props => {
     e.preventDefault();
     if (!formData.email) {
       notify("Invlaid Email")
+      return;
+    }
+    if (!formData.password) {
+      notify("Please Enter a Password")
       return;
     }
     // console.log('Working');
