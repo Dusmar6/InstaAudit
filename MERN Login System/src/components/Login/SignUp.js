@@ -110,10 +110,11 @@ const SignUp = (props) => {
       }).catch(error => {
         console.log(error)
         try {
-          console.log(error.response.data);
+          console.log(error);
           notify(error.response.data.email)
           notify(error.response.data.password)
           notify(error.response.data.password_confirm)
+          notify(error.response.data.emailnotfound)
         } catch (e) {
           console.log(e)
           notify("Error Signing Up")

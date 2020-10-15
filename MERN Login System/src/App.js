@@ -12,7 +12,7 @@ import GlobalState from './components/contexts/GlobalState';
 
 
 const defaultGlobalState = {
-  session: {email: '', jwt: '' }
+  session: { email: '', jwt: '' }
 };
 
 const globalStateContext = React.createContext(defaultGlobalState);
@@ -47,7 +47,7 @@ export const App = (props) => {
       <GlobalStateProvider>
         <Router>
           <Switch>
-          <Route path='/' exact strict>
+            <Route path='/' exact strict>
               <LandingPage></LandingPage>
             </Route>
             <Route path='/users/sign-in' value={props} exact strict>

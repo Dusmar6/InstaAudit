@@ -71,7 +71,7 @@ const SignIn = React.memo((props) => {
     }))
   }
 
-  
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -94,6 +94,7 @@ const SignIn = React.memo((props) => {
       }).catch(error => {
         console.log(error.response.data)
         notify(error.response.data.email)
+        notify(error.response.data.password)
         notify(error.response.data.passwordincorrect)
       });
   }
