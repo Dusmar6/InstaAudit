@@ -1,4 +1,4 @@
-import React, { useState, useReducer, createContext, useContext } from 'react';
+import React, { useState, useReducer, createContext, useContext, useEffect } from 'react';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp.js';
 import Dash from './components/Dashboard/Dash.js';
@@ -41,24 +41,30 @@ const useGlobalState = () => [
 
 export const App = (props) => {
 
-  return (
+  const [test, settest] = useState(false)
 
+  return (
     <div className="App">
+      <h1>Logged In: {test.toString()}</h1>
       <GlobalStateProvider>
         <Router>
           <Switch>
             <Route path='/' exact strict>
               <LandingPage></LandingPage>
             </Route>
-            <Route path='/users/sign-in' value={props} exact strict>
-              <SignIn></SignIn>
+            <Route path='/users/sign-in' exact strict>
+              <SignIn settest={settest}></SignIn>
             </Route>
             <Route path='/users/sign-up' exact strict>
               <SignUp></SignUp>
             </Route>
-            <Route path='/api/dashboard' exact strict>
-              <Dash></Dash>
-            </Route>
+            <ProtectedRoute
+              path='/api/dashboard'
+              exact strict
+              settest={settest}
+              appProps={{ test }}
+              component={Dash}>
+            </ProtectedRoute>
           </Switch>
         </Router>
       </GlobalStateProvider>

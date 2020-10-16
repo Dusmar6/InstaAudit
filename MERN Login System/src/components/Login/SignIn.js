@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 toast.configure()
 
-const SignIn = React.memo((props) => {
+const SignIn = (props) => {
   // const [state, dispatch] = useGlobalState();
 
 
@@ -84,15 +84,20 @@ const SignIn = React.memo((props) => {
     // console.log(formData.password);
     axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
       .then(response => {
-        props.history.push("/api/dashboard")
         console.log(response.data);
         console.log(response.data.token);
         // const s = {loggedIn: true, jwt: response.data.token, username: formData.email};
         // setSession(s);
         // dispatch({session: {email: formData.email, jwt: response.data.token}});
-        console.log(props);
+        props.settest(true)
+        props.history.push({
+          pathname: "/api/dashboard",
+          state: {
+            test: props.test
+          }
+        })
       }).catch(error => {
-        console.log(error.response.data)
+        console.log(error)
         notify(error.response.data.email)
         notify(error.response.data.password)
         notify(error.response.data.passwordincorrect)
@@ -173,6 +178,6 @@ const SignIn = React.memo((props) => {
       </Box>
     </Container>
   );
-});
+};
 
 export default withRouter(SignIn);
