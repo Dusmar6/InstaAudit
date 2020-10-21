@@ -11,49 +11,51 @@ import ProtectedRoute from './components/ProtectedRoute';
 import GlobalState from './components/contexts/GlobalState';
 
 
-const defaultGlobalState = {
-  session: { email: '', jwt: '' }
-};
 
-const globalStateContext = React.createContext(defaultGlobalState);
-const dispatchStateContext = React.createContext(undefined);
 
-const GlobalStateProvider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(
-    (state, newValue) => ({ ...state, ...newValue }),
-    defaultGlobalState
-  );
-  return (
-    <globalStateContext.Provider value={state}>
-      <dispatchStateContext.Provider value={dispatch}>
-        {children}
-      </dispatchStateContext.Provider>
-    </globalStateContext.Provider>
-  );
-};
+// const globalStateContext = React.createContext(defaultGlobalState);
+// const dispatchStateContext = React.createContext(undefined);
 
-const useGlobalState = () => [
-  React.useContext(globalStateContext),
-  React.useContext(dispatchStateContext)
-];
+// const GlobalStateProvider = ({ children }) => {
+//   const [state, dispatch] = React.useReducer(
+//     (state, newValue) => ({ ...state, ...newValue }),
+//     defaultGlobalState
+//   );
+//   return (
+//     <globalStateContext.Provider value={state}>
+//       <dispatchStateContext.Provider value={dispatch}>
+//         {children}
+//       </dispatchStateContext.Provider>
+//     </globalStateContext.Provider>
+//   );
+// };
+
+// const useGlobalState = () => [
+//   React.useContext(globalStateContext),
+//   React.useContext(dispatchStateContext)
+// ];
 
 
 
 export const App = (props) => {
+  
+  const defaultGlobalState = {
+    session: { email: 'a', jwt: 'a' }
+  };
 
-  const [test, settest] = useState(false)
+  const [globalState, setGlobalState] = useState(defaultGlobalState)
 
   return (
     <div className="App">
-      <h1>Logged In: {test.toString()}</h1>
-      <GlobalStateProvider>
+      <h1>Logged In: {JSON.stringify(globalState.session)}</h1>
+      {/* <GlobalStateProvider> */}
         <Router>
           <Switch>
             <Route path='/' exact strict>
               <LandingPage></LandingPage>
             </Route>
             <Route path='/users/sign-in' exact strict>
-              <SignIn settest={settest}></SignIn>
+              <SignIn settest={setGlobalState}></SignIn>
             </Route>
             <Route path='/users/sign-up' exact strict>
               <SignUp></SignUp>
@@ -61,13 +63,13 @@ export const App = (props) => {
             <ProtectedRoute
               path='/api/dashboard'
               exact strict
-              settest={settest}
-              appProps={{ test }}
+              settest={setGlobalState}
+              appProps={{ globalState }}
               component={Dash}>
             </ProtectedRoute>
           </Switch>
         </Router>
-      </GlobalStateProvider>
+      {/* </GlobalStateProvider> */}
     </div>
   )
 }

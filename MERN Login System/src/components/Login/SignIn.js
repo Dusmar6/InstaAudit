@@ -49,8 +49,6 @@ const useStyles = makeStyles((theme) => ({
 toast.configure()
 
 const SignIn = (props) => {
-  // const [state, dispatch] = useGlobalState();
-
 
   const [formData, setFormData] = useState([
     {
@@ -71,36 +69,26 @@ const SignIn = (props) => {
     }))
   }
 
-
-
   const handleSubmit = e => {
     e.preventDefault();
     if (!formData.email) {
       notify("Please Enter an Email Address")
       return;
-    }
-    // console.log('Working');
-    // console.log(formData.email);
-    // console.log(formData.password);
+  }
+
     axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
       .then(response => {
         console.log(response.data);
         console.log(response.data.token);
-        // const s = {loggedIn: true, jwt: response.data.token, username: formData.email};
-        // setSession(s);
-        // dispatch({session: {email: formData.email, jwt: response.data.token}});
-        props.settest(true)
+        props.settest(true);
         props.history.push({
-          pathname: "/api/dashboard",
-          state: {
-            test: props.test
-          }
+          pathname: "/api/dashboard"
         })
       }).catch(error => {
-        console.log(error)
-        notify(error.response.data.email)
-        notify(error.response.data.password)
-        notify(error.response.data.passwordincorrect)
+        console.log(error);
+        notify(error.response.data.email);
+        notify(error.response.data.password);
+        notify(error.response.data.passwordincorrect);
       });
   }
 
