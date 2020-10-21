@@ -39,23 +39,22 @@ import GlobalState from './components/contexts/GlobalState';
 
 export const App = (props) => {
   
-  const defaultGlobalState = {
-    session: { email: 'a', jwt: 'a' }
+  const initialSession = {
+    loggedIn: false, email: 'a', jwt: 'a' 
   };
 
-  const [globalState, setGlobalState] = useState(defaultGlobalState)
+  const [session, setSession] = useState(initialSession);
 
   return (
     <div className="App">
-      <h1>Logged In: {JSON.stringify(globalState.session)}</h1>
-      {/* <GlobalStateProvider> */}
+      {/* <h1>Logged In: {JSON.stringify(session)}</h1> */}
         <Router>
           <Switch>
             <Route path='/' exact strict>
               <LandingPage></LandingPage>
             </Route>
             <Route path='/users/sign-in' exact strict>
-              <SignIn settest={setGlobalState}></SignIn>
+              <SignIn setSession={setSession}></SignIn>
             </Route>
             <Route path='/users/sign-up' exact strict>
               <SignUp></SignUp>
@@ -63,13 +62,12 @@ export const App = (props) => {
             <ProtectedRoute
               path='/api/dashboard'
               exact strict
-              settest={setGlobalState}
-              appProps={{ globalState }}
+              setSession={setSession}
+              appProps={{session}}
               component={Dash}>
             </ProtectedRoute>
           </Switch>
         </Router>
-      {/* </GlobalStateProvider> */}
     </div>
   )
 }

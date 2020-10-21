@@ -12,8 +12,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import './Login.css'; // Sets the background
 import axios from 'axios';
-import { ThemeContext } from '../contexts/ThemeContext';
-import auth from '../auth';
 import { withRouter } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -78,9 +76,8 @@ const SignIn = (props) => {
 
     axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
       .then(response => {
-        console.log(response.data);
-        console.log(response.data.token);
-        props.settest(true);
+        // Assigns the session variables when the user logs in
+        props.setSession({ loggedIn: true, email: formData.email, jwt: response.data.token });
         props.history.push({
           pathname: "/api/dashboard"
         })

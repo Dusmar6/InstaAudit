@@ -7,7 +7,7 @@ function ProtectedRoute({ component: C, appProps, ...rest }) {
             {...rest}
             render={
                 props =>
-                    appProps.test
+                    appProps.session.loggedIn
                         ? <C {...props} {...appProps} {...rest} />
                         : <Redirect
                             to={`/users/sign-in?redirect=${props.location.pathname}${props.location.search}`}
