@@ -91,17 +91,17 @@ const SignUp = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     if (!formData.email) {
       notify("Invlaid Email")
       return;
     }
+
     if (!formData.password) {
       notify("Please Enter a Password")
       return;
     }
-    // console.log('Working');
-    // console.log(formData.email);
-    // console.log(formData.password);
+    
     let response = axios.post('http://localhost:5000/api/users/sign-up',
       JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}", "password_confirm": "${formData.password_confirm}"}`))
       .then(response => {
@@ -176,10 +176,6 @@ const SignUp = (props) => {
             >
               Sign Up
               </Button>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
           </div>
         </form>
       </div>

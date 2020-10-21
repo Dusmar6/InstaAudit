@@ -54,7 +54,7 @@ export const App = (props) => {
               <LandingPage></LandingPage>
             </Route>
             <Route path='/users/sign-in' exact strict>
-              <SignIn setSession={setSession}></SignIn>
+              <SignIn appProps={{session}} setSession={setSession}></SignIn>
             </Route>
             <Route path='/users/sign-up' exact strict>
               <SignUp></SignUp>

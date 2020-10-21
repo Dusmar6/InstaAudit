@@ -48,15 +48,18 @@ toast.configure()
 
 const SignIn = (props) => {
 
+  // Initialize the login form data
   const [formData, setFormData] = useState([
     {
       email: null,
-      password: null
+      password: null,
+      checked: false
     },
   ]);
 
   const classes = useStyles();
 
+  // Updates the email/ password fields in the login form  
   const handleInputChange = e => {
     console.log('event.target:', e.target);
     console.log('event.target.value:', e.target.value);
@@ -67,17 +70,38 @@ const SignIn = (props) => {
     }))
   }
 
+  // Updates the "Remember me" boolean in the login form
+  const handleChecked = e => {
+    console.log(e.target.checked);
+    const { name, checked } = e.target
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: checked
+    }))
+  }
+
+  // Submission of login form
   const handleSubmit = e => {
     e.preventDefault();
+
     if (!formData.email) {
       notify("Please Enter an Email Address")
       return;
-  }
+    }
+
+    if (!formData.password) {
+      notify("Please Enter an Email Address")
+      return;
+    }
 
     axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
       .then(response => {
         // Assigns the session variables when the user logs in
         props.setSession({ loggedIn: true, email: formData.email, jwt: response.data.token });
+        console.log(formData.checked);
+        if(formData.checked) { localStorage.setItem('token', response.data.token); } // Store token to local storage on login if "Remember me" is checked
+         
+        
         props.history.push({
           pathname: "/api/dashboard"
         })
@@ -133,8 +157,8 @@ const SignIn = (props) => {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            control={<Checkbox name="checked" id="checked" onChange={handleChecked} color="primary" />}
+            label="Remember me" 
           />
           <Button
             type="submit"

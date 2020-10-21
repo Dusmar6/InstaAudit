@@ -43,7 +43,7 @@ const Dash = (props) => {
       return false || "Invalid file type"
     }
   }
-
+  
   const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -73,8 +73,9 @@ const Dash = (props) => {
       <button
         onClick={() => {
           auth.login(() => {
-            props.settest(false)
-            props.history.push("/")
+            props.setSession({ loggedIn: false, email: 'a', jwt: 'a' });
+            props.history.push("/");
+            localStorage.removeItem('token');
           });
         }}
       >
