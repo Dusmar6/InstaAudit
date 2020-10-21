@@ -1,15 +1,15 @@
 const Validator = require('validator');
 const isEmpty = require('is-empty');
-
+const jwt = require('jsonwebtoken')
 
 // Function to grab the file extension from the file name
-function getExtension(filename) {
+const getExtension = (filename) => {
     var parts = filename.split('.');
     return parts[parts.length - 1];
 };
 
 // Function to check if a file name has the appropriate extension
-function isImage(filename) {
+const isImage = (filename) => {
 let extension = getExtension(data);
     switch (extension.toLowerCase()) {
         case 'jpg':
@@ -18,22 +18,21 @@ let extension = getExtension(data);
     return false;
 };
 
+
+
 module.exports = function validateImageUpload(data) {
 
-    // let errors = {};
+    let errors = {};
     console.log(`backend ${data.filename}`);
-
-    // data.image = !isEmpty(data.image) ? data.image : null;
-
-    // // Image Check
-    // if (Validator.isEmpty(data.image)) {
-    //     errors.image = "No image selected for upload";
-    // } else if (Validator.isImage(data.image)) {
-    //     errors.image = "Email is invalid";
-    // }
-
-    // return {
-    //     errors,
-    //     isValid: isEmpty(errors)
-    // };
+    
+    // Checks to see if current time is after the expiration time of the jwt
+    let jwtDecoded = jwt.decode(data.jwt.split('Bearer ')[1]);
+    if (parseInt(String(Date.now()).substring(0, 10)) > parseInt(jwtDecoded['exp'])) {
+        errors.block = `Please log in again to refresh your authentication token`;
+    }
+    
+    return {
+        errors,
+        isValid: isEmpty(errors)
+    };
 };

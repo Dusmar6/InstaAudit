@@ -10,8 +10,8 @@ const validateSignInInput = require('../../validation/SignIn');
 const User = require('../../models/user.model');
 
 router.post("/sign-up", (req, res) => {
-  // Form validation
 
+  // Form validation
   const { errors, isValid } = validateSignUpInput(req.body);
 
   // Check validation
@@ -83,7 +83,8 @@ router.post("/sign-in", (req, res) => {
           (err, token) => {
             res.json({
               success: true,
-              token: "Bearer " + token
+              token: "Bearer " + token,
+              uid: user.id
             });
           }
         );

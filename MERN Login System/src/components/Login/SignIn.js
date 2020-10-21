@@ -16,6 +16,7 @@ import { withRouter } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -99,7 +100,10 @@ const SignIn = (props) => {
         // Assigns the session variables when the user logs in
         props.setSession({ loggedIn: true, email: formData.email, jwt: response.data.token });
         console.log(formData.checked);
-        if(formData.checked) { localStorage.setItem('token', response.data.token); } // Store token to local storage on login if "Remember me" is checked
+        // Store token/ uid to local storage on login if "Remember me" is checked
+        if(formData.checked) { 
+          localStorage.setItem('token', response.data.token); 
+        } 
          
         
         props.history.push({

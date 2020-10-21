@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Dash.css';
 import auth from '../auth';
 import { withRouter } from "react-router-dom";
+import jwt from 'jsonwebtoken';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -15,7 +16,7 @@ const Dash = (props) => {
   const onSubmit = data => {
 
     console.log(`"name": "${data.img[0].name}", "img64": "${baseImage}"`)
-    axios.post('http://localhost:5000/api/dashboard/upload-image', JSON.parse(`{"name": "${data.img[0].name}", "img64": "${baseImage}"}`)).then(response => {
+    axios.post('http://localhost:5000/api/dashboard/upload-image', JSON.parse(`{"name": "${data.img[0].name}", "img64": "${baseImage}", "jwt": "${localStorage.getItem('token')}"}`)).then(response => {
       console.log(response.data);
     }).catch(error => {
       console.log(error.response.data);
@@ -23,6 +24,7 @@ const Dash = (props) => {
   };
 
   const uploadImage = async (e) => {
+    
     const file = e.target.files[0];
     const base64 = await convertBase64(file);
     setBaseImage(base64);
@@ -62,6 +64,7 @@ const Dash = (props) => {
   return (
     <div>
       <h2>File Upload & Image Preview</h2>
+      <p>{console.log(JSON.stringify(jwt.decode(localStorage.getItem('token').split('Bearer ')[1])))}</p>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input name="img" type="file" ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
