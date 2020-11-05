@@ -80,8 +80,6 @@ const SignUp = (props) => {
   const classes = useStyles();
 
   const handleInputChange = e => {
-    // console.log('event.target:', e.target);
-    // console.log('event.target.value:', e.target.value);
     const { name, value } = e.target
     setFormData(prevState => ({
       ...prevState,

@@ -5,7 +5,7 @@ const keys = require("../../config/keys");
 
 const validateImageUpload = require('../../validation/ImageUpload');
 
-const ImageModel = require('../../models/upload-image.model');
+// const ImageModel = require('../../models/upload-image.model');
 
 router.post("/upload-image", (req, res) => {
 

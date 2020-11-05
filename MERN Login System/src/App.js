@@ -1,14 +1,11 @@
-import React, { useState, useReducer, createContext, useContext, useEffect } from 'react';
+import React, { useState, useMemo, useReducer, createContext, useContext, useEffect } from 'react';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp.js';
 import Dash from './components/Dashboard/Dash.js';
 import LandingPage from './components/Login/LandingPage.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ReactDOM from 'react-dom';
-import { ThemeContextProvider } from './components/contexts/ThemeContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import GlobalState from './components/contexts/GlobalState';
 
 
 
@@ -40,14 +37,28 @@ import GlobalState from './components/contexts/GlobalState';
 export const App = (props) => {
   
   const initialSession = {
-    loggedIn: false, email: 'a', jwt: 'a' 
+    loggedIn: false, email: null, jwt: null
   };
 
   const [session, setSession] = useState(initialSession);
+  
+  const useComponentWillMount = (func) => {
+    useMemo(func, [])
+  }
+
+  const transferLocalData = () => {
+    if (localStorage.getItem('token') === null) {
+      setSession({ jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxMDkyMzcwOTEyMX0.Z6NTR6AhWXJlC9y5GI9pBc_fm3Wc6n7sZYlrdXEOKvY' }) 
+    }
+    else {
+      setSession({ jwt: localStorage.getItem('token') }) 
+    }
+  }
+
+  useComponentWillMount(transferLocalData);
 
   return (
     <div className="App">
-      {/* <h1>Logged In: {JSON.stringify(session)}</h1> */}
         <Router>
           <Switch>
             <Route path='/' exact strict>

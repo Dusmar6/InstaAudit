@@ -98,7 +98,7 @@ const SignIn = (props) => {
     axios.post('http://localhost:5000/api/users/sign-in', JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}"}`))
       .then(response => {
         // Assigns the session variables when the user logs in
-        props.setSession({ loggedIn: true, email: formData.email, jwt: response.data.token });
+        props.setSession({ jwt: response.data.token });
         console.log(formData.checked);
         // Store token/ uid to local storage on login if "Remember me" is checked
         if(formData.checked) { 
