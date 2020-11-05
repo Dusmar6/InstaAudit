@@ -84,7 +84,7 @@ const SignIn = (props) => {
   // Submission of login form
   const handleSubmit = e => {
     e.preventDefault();
-
+    
     if (!formData.email) {
       notify("Please Enter an Email Address")
       return;

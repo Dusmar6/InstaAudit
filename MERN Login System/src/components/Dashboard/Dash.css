@@ -12,3 +12,58 @@ html,body{
   place-items: center;
   text-align: center;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.img-input {
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  top:0px;
+  left:0px;
+  width: 300px;
+  height: 300px;
+}
+
+.img-display {
+  position: absolute;
+  z-index: -1;
+  top:0px;
+  left:0px;
+  border-style: solid;
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 300px;
+  min-height: 300px;
+}
+
+.submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 10px 0px 5px 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.logout {
+  background-color: red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 5px 0px 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
