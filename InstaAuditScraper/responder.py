@@ -198,11 +198,13 @@ def color(path):
     
     return data, s
 
+
+'''
 def main():
     
     with open("image.jpg", "wb") as fh:
         fh.write(base64.decodebytes(img_data))
 
 
-
+'''
 
