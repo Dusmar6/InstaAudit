@@ -1,24 +1,24 @@
-from InstaAuditScraper.Instagram import Instagram
-from InstaAuditScraper.Account import Account
-from InstaAuditScraper.GetPost import GetPost
-
+from Instagram import Instagram
+from Account import Account
+from GetPost import GetPost
+import random
 import requests
 import time
 
 # The amount of time to wait in between requests plus a random number between 0 and this number divided by 2
-SLEEP_BETWEEN_REQUESTS = 3
+SLEEP_BETWEEN_REQUESTS = 20
 
 ig = Instagram(SLEEP_BETWEEN_REQUESTS)
 sesh = requests.session()
-accounts = ['gucci', 'burberry', 'givenchyofficial', 'off____white', 'ysl', 'supremenewyork', 'bape_us', 'louisvuitton']
-# accounts = ['gucci']
+accounts = ['hottopic']
+# accounts = ['gucci','burberry', 'off____white', 'ysl', 'supremenewyork', 'bape_us', 'louisvuitton']
 total_posts_gathered = 0
 for account in accounts:
-    profile = Account(account, ig, 10)
+    profile = Account(account, ig, 1000)
     # profile = Account(account, ig, 100)
     for i in range(len(profile.posts)):
         print(profile.posts[i])
-    GetPost('posts', profile.posts)
+    GetPost('posts', account, profile.posts)
     total_posts_gathered += len(profile.posts)
 print('DEBUG: %d posts gathered in %d seconds' % (total_posts_gathered, time.perf_counter()))
 # print(account.posts[0]['edge_media_preview_like'])

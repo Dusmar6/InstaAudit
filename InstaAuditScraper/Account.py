@@ -1,6 +1,6 @@
 import urllib.parse
 
-from InstaAuditScraper.Instagram import Instagram
+from Instagram import Instagram
 
 class Account:
 
@@ -24,6 +24,7 @@ class Account:
                 'edge_media_to_comment': data['edge_owner_to_timeline_media']['edges'][i]['node']['edge_media_to_comment']['count'],
                 'edge_media_preview_like': data['edge_owner_to_timeline_media']['edges'][i]['node']['edge_media_preview_like']['count'],
                 'taken_at_timestamp': data['edge_owner_to_timeline_media']['edges'][i]['node']['taken_at_timestamp']
+                
             }
             if post['__typename'] == 'GraphImage':
                 self.posts.append(post)
@@ -55,6 +56,7 @@ class Account:
                         'edge_media_preview_like': data['data']['user']['edge_owner_to_timeline_media']['edges'][j]['node']['edge_media_preview_like']['count'],
                         'taken_at_timestamp': data['data']['user']['edge_owner_to_timeline_media']['edges'][j]['node']['taken_at_timestamp']
                     }
+                    
                     if post['__typename'] == 'GraphImage':
                         self.posts.append(post)
                     if len(self.posts) >= amt:

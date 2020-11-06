@@ -36,6 +36,7 @@ class Instagram():
         if len(array) > 0:
             raw_json = array[0][len("_sharedData ="):-len(";</script>")]
             account_json = json.loads(raw_json)
+            
 
         if account_json['entry_data']['ProfilePage'][0]['graphql']['user'] is None:
             raise Exception('No account with this username exists.')
