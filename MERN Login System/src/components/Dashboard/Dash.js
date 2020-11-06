@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import './Dash.css';
@@ -101,6 +101,7 @@ const Dash = (props) => {
       <div class='input-wrapper'>
         <input class='img-input' form='upload-form' name="img" type="file" ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
          {errors.img && window.alert(errors.img.message)}
+        <i class='fa fa-arrow-up'></i>
         <img class='img-display' src={baseImage} />
       </div>
         
