@@ -101,7 +101,9 @@ const Dash = (props) => {
       <div class='input-wrapper'>
         <input class='img-input' form='upload-form' name="img" type="file" title='' ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
          {errors.img && window.alert(errors.img.message)}
-        <p class='upload-text'>Upload Image</p>
+        <div class='file-upload'>
+          <i class='fa fa-arrow-up'></i>
+        </div>
         <img class='img-display' src={baseImage} />
       </div>
         
