@@ -2,20 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto';
-}
-
-html,body{
-  display: grid;
-  height: 100%;
-  place-items: center;
-  text-align: center;
-  /* background-image: none; */
-}
 
 .container {
   display: flex;

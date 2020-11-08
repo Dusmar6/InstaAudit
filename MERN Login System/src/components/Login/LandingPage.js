@@ -1,10 +1,12 @@
 import React from "react";
 import './LandingPage.css';
+import Link from '@material-ui/core/Link';
+
 
 const LandingPage = () => {
-
-        return (
-            <div id="Webpage">
+    const link = <a href={'/users/sign-in'}>About</a>;
+    return (
+        <div id="Webpage">
             <div id="InstaAudit">
                 <span>InstaAudit</span>
             </div>
@@ -12,38 +14,44 @@ const LandingPage = () => {
                 <span>Discover</span>
             </div>
             <div id="About">
-                <span>About</span>
+                <span>{link}</span>
             </div>
             <div id="Support">
                 <span>Support</span>
             </div>
-            <div id="Group_48">
-                <svg class="Rectangle_90">
-                    <rect id="Rectangle_90" rx="25.5" ry="25.5" x="0" y="0" width="130" height="51">
-                    </rect>
-                </svg>
-                <div id="Sign_Up">
-                    <span>Sign Up</span>
+            <Link href="/users/sign-up">
+                <div id="Group_48">
+                    <svg class="Rectangle_90">
+                        <rect id="Rectangle_90" rx="25.5" ry="25.5" x="0" y="0" width="130" height="51">
+                        </rect>
+                    </svg>
+                    <div id="Sign_Up">
+                        <span>Sign Up</span>
+                    </div>
                 </div>
-            </div>
-            <div id="Group_50">
-                <svg class="Rectangle_90_o">
-                    <rect id="Rectangle_90_o" rx="30" ry="30" x="0" y="0" width="190" height="60">
-                    </rect>
-                </svg>
-                <div id="Get_Started">
-                    <span>Get Started</span>
+            </Link>
+            <Link color="inherit" href="/users/sign-up">
+                <div id="Group_50">
+                    <svg class="Rectangle_90_o">
+                        <rect id="Rectangle_90_o" rx="30" ry="30" x="0" y="0" width="190" height="60">
+                        </rect>
+                    </svg>
+                    <div id="Get_Started">
+                        <span>Get Started</span>
+                    </div>
                 </div>
-            </div>
-            <div id="Group_49">
-                <svg class="Rectangle_90_r">
-                    <rect id="Rectangle_90_r" rx="25.5" ry="25.5" x="0" y="0" width="130" height="51">
-                    </rect>
-                </svg>
-                <div id="Log_In">
-                    <span>Log In</span>
+            </Link>
+            <Link color="inherit" href="/users/sign-in">
+                <div id="Group_49">
+                    <svg class="Rectangle_90_r">
+                        <rect id="Rectangle_90_r" rx="25.5" ry="25.5" x="0" y="0" width="130" height="51">
+                        </rect>
+                    </svg>
+                    <div id="Log_In">
+                        <span>Sign In</span>
+                    </div>
                 </div>
-            </div>
+            </Link>
             <div id="Audit_your_posts_before_they_g">
                 <span>Audit your posts before<br/>they go live.</span>
             </div>
@@ -2199,9 +2207,9 @@ const LandingPage = () => {
                     <span>© 2020 Insta Audit Co. All rights reserved.</span>
                 </div>
             </div>
-            <svg class="Ellipse_80">
-                <ellipse id="Ellipse_80" rx="99" ry="172.5" cx="99" cy="172.5">
-                </ellipse>
+            <svg class="Path_656" viewBox="3.075 0 135.576 172.256">
+                <path id="Path_656" d="M 99 0 C 115.0747985839844 0 138.6513061523438 14.04695510864258 138.6513061523438 14.04695510864258 L 99.13986206054688 172.0034942626953 C 99.13986206054688 172.0034942626953 114.7820358276367 176.4697113037109 3.075364112854004 147.8516387939453 C 3.075364112854004 61.60162734985352 44.32381057739258 0 99 0 Z">
+                </path>
             </svg>
             <div id="Group_54">
                 <svg class="Path_651" viewBox="-480.807 2069.414 326.349 211.601">
@@ -2210,7 +2218,7 @@ const LandingPage = () => {
                 </svg>
             </div>
         </div>
-        );
+    );
 }
 
 export default LandingPage;
