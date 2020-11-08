@@ -1,4 +1,4 @@
-import React, { useState, useReducer, createContext, useContext } from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -10,11 +10,11 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import './Login.css'; // Sets the background
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { motion } from 'framer-motion';
 
 
 const Copyright = () => {
@@ -43,6 +43,16 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(1, 0, 2)
   },
+  container: {
+    maxWidth: '444px',
+    paddingLeft: '24px',
+    paddingRight: '24px',
+    width: '100%',
+    display: 'block',
+    boxSizing: 'border-box',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  }
 }));
 
 toast.configure()
@@ -127,7 +137,7 @@ const SignIn = (props) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <motion.div class={classes.container} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
@@ -189,7 +199,7 @@ const SignIn = (props) => {
       <Box mt={31}>
         <Copyright />
       </Box>
-    </Container>
+    </motion.div>
   );
 };
 

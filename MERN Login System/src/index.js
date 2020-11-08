@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
-
+const serviceWorker = require('./serviceWorker') ;
 
 ReactDOM.render(
-    <App />,
-    document.querySelector('#root'),
+        <App/>,
+    document.getElementById('root')
 );
+serviceWorker.register();

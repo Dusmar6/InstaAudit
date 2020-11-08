@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import './Dash.css';
 import auth from '../auth';
 import { withRouter } from "react-router-dom";
-import jwt from 'jsonwebtoken';
+import { motion } from 'framer-motion';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-
 
 const Dash = (props) => {
 
@@ -96,7 +94,7 @@ const Dash = (props) => {
   };
 
   return (
-    <div class='container'>
+    <motion.div class='container' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}}>
 
       <div class='input-wrapper'>
         <input class='img-input' form='upload-form' name="img" type="file" title='' ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
@@ -104,7 +102,7 @@ const Dash = (props) => {
         <div class='file-upload'>
           <i class='fa fa-arrow-up'></i>
         </div>
-        <img class='img-display' src={baseImage} />
+        <img class='img-display' src={baseImage} alt='' />
       </div>
         
       <button class="submit" type="submit" form='upload-form'>Submit</button>
@@ -122,7 +120,7 @@ const Dash = (props) => {
 
       <form id='upload-form' class='upload-form' onSubmit={handleSubmit(onSubmit)}/> 
 
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,15 +1,18 @@
 import React, { useState, useMemo, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
-import HowItWorks from './components/Info/HowItWorks';
-import TechnologiesUsed from './components/Info/TechnologiesUsed';
+import { AnimatePresence } from 'framer-motion';
+
+
 const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
+const HowItWorks = lazy(() => import('./components/Info/HowItWorks'));
+const TechnologiesUsed = lazy(() => import('./components/Info/TechnologiesUsed'));
 const SignIn = lazy(() => import('./components/Login/SignIn'));
 const SignUp = lazy(() => import('./components/Login/SignUp'));
 const Dash = lazy(() => import('./components/Dashboard/Dash'));
 const LandingPage = lazy(() => import('./components/Login/LandingPage.js'));
+
 
 const useStyles = makeStyles((theme) => ({
   App: {
@@ -19,6 +22,19 @@ const useStyles = makeStyles((theme) => ({
     overflowY: 'hidden',
     overflowX: 'hidden'
   },
+
+	// #global-container {
+	//   opacity: 1;
+	//   transition: 500ms;
+	//   transform: translateX(0);
+	//   transform-origin: left;
+  //   }
+
+	// html.is-animating #global-container {
+	// 	opacity: 1;
+	// 	transform: translateX(100%);
+	// }
+	
 
   /* Loading animation */
   // load: {
@@ -66,15 +82,11 @@ export const App = (props) => {
   const classes = useStyles();
 
   const initialSession = {
-    loggedIn: false, email: null, jwt: null
+    jwt: null
   };
 
   const [session, setSession] = useState(initialSession);
   
-  const useComponentWillMount = (func) => {
-    useMemo(func, [])
-  }
-
   useMemo(() => {
     if (localStorage.getItem('token') === null) {
       setSession({ jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxMDkyMzcwOTEyMX0.Z6NTR6AhWXJlC9y5GI9pBc_fm3Wc6n7sZYlrdXEOKvY' }) 
@@ -84,39 +96,38 @@ export const App = (props) => {
     }
   }, []) 
 
-  // useComponentWillMount(transferLocalData);
-
   return (
     <div className="App" class={classes.App}>
-      {/* <div class={classes.load}></div> */}
-      <Suspense fallback={<div class={classes.load}></div>}>
-        <Router>
-          <Switch>
-            <Route path='/' exact strict>
-              <LandingPage></LandingPage>
-            </Route>
-            <Route path='/how-it-works' exact strict>
-              <HowItWorks></HowItWorks>
-            </Route>
-            <Route path='/technologies-used' exact strict>
-              <TechnologiesUsed></TechnologiesUsed>
-            </Route>
-            <Route path='/users/sign-in' exact strict>
-              <SignIn appProps={{session}} setSession={setSession}></SignIn>
-            </Route>
-            <Route path='/users/sign-up' exact strict>
-              <SignUp></SignUp>
-            </Route>
-            <ProtectedRoute
-              path='/api/dashboard'
-              exact strict
-              setSession={setSession}
-              appProps={{session}}
-              component={Dash}>
-            </ProtectedRoute>
-          </Switch>
-        </Router>
-      </Suspense>
+      <BrowserRouter>
+        <Suspense fallback={<div class={classes.load}></div>}>
+          <AnimatePresence>
+                <Switch>
+                  <Route path='/' exact strict>
+                    <LandingPage></LandingPage>
+                  </Route>
+                  <Route path='/how-it-works' exact strict>
+                    <HowItWorks></HowItWorks>
+                  </Route>
+                  <Route path='/technologies-used' exact strict>
+                    <TechnologiesUsed></TechnologiesUsed>
+                  </Route>
+                  <Route path='/users/sign-in' exact strict>
+                    <SignIn appProps={{session}} setSession={setSession}></SignIn>
+                  </Route>
+                  <Route path='/users/sign-up' exact strict>
+                    <SignUp></SignUp>
+                  </Route>
+                  <ProtectedRoute
+                    path='/api/dashboard'
+                    exact strict
+                    setSession={setSession}
+                    appProps={{session}}
+                    component={Dash}>
+                  </ProtectedRoute>
+                </Switch>
+            </AnimatePresence>
+        </Suspense>
+      </BrowserRouter>
     </div>
   )
 }

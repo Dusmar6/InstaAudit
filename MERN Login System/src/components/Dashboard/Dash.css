@@ -2,6 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
+#global-container {
+  opacity: 1;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating #global-container {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-animating #global-container {
+  opacity: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;

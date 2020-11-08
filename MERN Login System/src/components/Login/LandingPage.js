@@ -1,12 +1,13 @@
 import React from "react";
 import './LandingPage.css';
 import Link from '@material-ui/core/Link';
+import { motion } from 'framer-motion';
 
 
 const LandingPage = () => {
     const link = <a class='link' href={'/'}>About</a>;
     return (
-        <div id="Webpage">
+        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}} class="Webpage">
             <div id="InstaAudit">
                 <span>InstaAudit</span>
             </div>
@@ -2229,7 +2230,7 @@ const LandingPage = () => {
                     </path>
                 </svg>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -2,21 +2,17 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import './Login.css'; // Sets the background
 import axios from 'axios';
-import ToggleSwitch from './ToggleSwitch';
-import styled from "styled-components";
 import { withRouter } from "react-router-dom"
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { motion } from 'framer-motion';
 
 function Copyright() {
   return (
@@ -44,18 +40,17 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2)
   },
-}));
-
-const theme = {
-  blue: {
-    default: "#3f51b5",
-    hover: "#283593"
-  },
-  pink: {
-    default: "#e91e63",
-    hover: "#ad1457"
+  container: {
+    maxWidth: '444px',
+    paddingLeft: '24px',
+    paddingRight: '24px',
+    width: '100%',
+    display: 'block',
+    boxSizing: 'border-box',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
-};
+}));
 
 toast.configure()
 
@@ -101,7 +96,7 @@ const SignUp = (props) => {
       return;
     }
     
-    let response = axios.post('http://localhost:5000/api/users/sign-up',
+    axios.post('http://localhost:5000/api/users/sign-up',
       JSON.parse(`{"email": "${formData.email}", "password": "${formData.password}", "password_confirm": "${formData.password_confirm}"}`))
       .then(response => {
         props.history.push("/users/sign-in")
@@ -123,7 +118,7 @@ const SignUp = (props) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <motion.div class={classes.container} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
@@ -189,7 +184,7 @@ const SignUp = (props) => {
       <Box mt={28}>
         <Copyright />
       </Box>
-    </Container>
+    </motion.div>
   );
 }
 

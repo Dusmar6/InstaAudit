@@ -1,5 +1,5 @@
 {
-  "name": "binary_baller",
+  "name": "insta-audit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "form-data": "^3.0.0",
+    "framer-motion": "^2.9.4",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.4",
     "prop-types": "^15.7.2",
@@ -22,7 +23,7 @@
     "react-scripts": "^3.4.3",
     "react-toast-notifications": "^2.4.0",
     "react-toastify": "^6.0.8",
-    "react-transition-group": "^4.3.0",
+    "react-transition-group": "^4.4.1",
     "styled": "^1.0.0",
     "styled-components": "^5.2.0"
   },
