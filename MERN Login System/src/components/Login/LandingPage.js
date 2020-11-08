@@ -30,7 +30,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </Link>
-            <Link color="inherit" href="/users/sign-up">
+            <Link color="inherit" href="/api/dashboard">
                 <div id="Group_50">
                     <svg class="Rectangle_90_o">
                         <rect id="Rectangle_90_o" rx="30" ry="30" x="0" y="0" width="190" height="60">

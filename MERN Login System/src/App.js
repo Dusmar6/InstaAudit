@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
     overflowY: 'hidden',
     overflowX: 'hidden'
   },
+
+  /* Loading animation */
   // load: {
   //   position: 'relative',
   //   /* Firefox */
@@ -40,6 +42,23 @@ const useStyles = makeStyles((theme) => ({
   //   margin: '0',
   //   animation: 'transform(rotate(90)) 3s' 
   // }
+  
+  /* Scrollbar */
+  '@global': {
+    '*::-webkit-scrollbar-track': {
+      border: '1px solid black',
+      backgroundColor: '#F5F5F5'
+    },
+    
+    '*::-webkit-scrollbar': {
+      width: '8px',
+      backgroundColor: '#F5F5F5'
+    },
+    
+    '*::-webkit-scrollbar-thumb': {
+      backgroundColor: '#000000'
+    }
+  }
 }));
 
 export const App = (props) => {

@@ -19,7 +19,6 @@ let extension = getExtension(data);
 };
 
 
-
 module.exports = function validateImageUpload(data) {
 
     let errors = {};
