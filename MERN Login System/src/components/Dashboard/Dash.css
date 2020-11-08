@@ -2,12 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
-
 .container {
   display: flex;
   flex-direction: column;
 }
-
 
 /* Image upload elements */
 .input-wrapper {

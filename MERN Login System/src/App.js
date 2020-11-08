@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
-
+import HowItWorks from './components/Info/HowItWorks';
+import TechnologiesUsed from './components/Info/TechnologiesUsed';
 const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
 const SignIn = lazy(() => import('./components/Login/SignIn'));
 const SignUp = lazy(() => import('./components/Login/SignUp'));
@@ -74,6 +75,12 @@ export const App = (props) => {
           <Switch>
             <Route path='/' exact strict>
               <LandingPage></LandingPage>
+            </Route>
+            <Route path='/how-it-works' exact strict>
+              <HowItWorks></HowItWorks>
+            </Route>
+            <Route path='/technologies-used' exact strict>
+              <TechnologiesUsed></TechnologiesUsed>
             </Route>
             <Route path='/users/sign-in' exact strict>
               <SignIn appProps={{session}} setSession={setSession}></SignIn>
