@@ -13,6 +13,7 @@ import { withRouter } from "react-router-dom"
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { motion } from 'framer-motion';
+import Particles from 'react-particles-js';
 
 function Copyright() {
   return (
@@ -24,6 +25,110 @@ function Copyright() {
       {new Date().getFullYear()}
     </Typography>
   );
+}
+
+const particleParams = {
+  "particles": {
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true,
+        "value_area": 1000
+      }
+    },
+    "color": {
+      "value": "#000000"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 12
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 0,
+        "height": 0
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 0,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#000000",
+      "opacity": 0.5,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 1122.388442605866,
+        "rotateY": 561.194221302933
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "window",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "repulse": {
+        "distance": 80,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": false
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -49,6 +154,12 @@ const useStyles = makeStyles((theme) => ({
     boxSizing: 'border-box',
     marginLeft: 'auto',
     marginRight: 'auto'
+  },
+  frame: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: '0px'
   }
 }));
 
@@ -118,7 +229,8 @@ const SignUp = (props) => {
   }
 
   return (
-    <motion.div class={classes.container} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}}>
+    <motion.div classes={classes.frame} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1}}>
+    <div class={classes.container}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
@@ -184,6 +296,8 @@ const SignUp = (props) => {
       <Box mt={28}>
         <Copyright />
       </Box>
+    </div>
+    <Particles params={particleParams} style={{marginTop: '-900px', position: 'absolute', zIndex: '-1'}}/>
     </motion.div>
   );
 }

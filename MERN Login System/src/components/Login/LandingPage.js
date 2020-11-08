@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const LandingPage = () => {
     const link = <a class='link' href={'/'}>About</a>;
     return (
-        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}} class="Webpage">
+        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1}} class="Webpage">
             <div id="InstaAudit">
                 <span>InstaAudit</span>
             </div>
@@ -2217,7 +2217,7 @@ const LandingPage = () => {
                     <span>Sagittis vitae et leo duis ut diam quam nulla porttitor massa. Ide  <br/>aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus <br/>imperdiet nulla malesuada pellentesque elit.</span>
                 </div>
                 <div id="_2020_Insta_Audit_Co_All_right">
-                    <span>© 2020 Insta Audit Co. All rights reserved.</span>
+                    <span>Copyright © Insta Audit 2020</span>
                 </div>
             </div>
             <svg class="Path_656" viewBox="3.075 0 135.576 172.256">
