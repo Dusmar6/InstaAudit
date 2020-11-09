@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -128,7 +128,7 @@ const particleParams = {
       }
     }
   },
-  "retina_detect": false
+  "retina_detect": true
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -136,7 +136,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(38),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: '20px',
+    paddingLeft: '30px',
+    paddingRight: '30px',
+    paddingBottom: '20px',
+    paddingTop: '20px',
+    backgroundColor: 'white'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -295,8 +301,8 @@ const SignIn = (props) => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="forgot-password" color="textSecondary" variant="body2">
-                Forgot password?
+              <Link href="/forgot-password" color="textSecondary" variant="body2">
+                {'Forgot password'}
               </Link>
             </Grid>
             <Grid item>
@@ -311,7 +317,7 @@ const SignIn = (props) => {
         <Copyright />
       </Box>
       </div>
-    <Particles params={particleParams} style={{marginTop: '-900px', position: 'absolute', zIndex: '-1'}}/>
+    <Particles params={particleParams} style={{marginTop: '-950px', position: 'absolute', zIndex: '-1'}}/>
     </motion.div>
   );
 };

@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion';
 const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
 const HowItWorks = lazy(() => import('./components/Info/HowItWorks'));
 const TechnologiesUsed = lazy(() => import('./components/Info/TechnologiesUsed'));
+const ForgotPassword = lazy(() => import('./components/Login/ForgotPassword'));
 const SignIn = lazy(() => import('./components/Login/SignIn'));
 const SignUp = lazy(() => import('./components/Login/SignUp'));
 const Dash = lazy(() => import('./components/Dashboard/Dash'));
@@ -110,6 +111,9 @@ export const App = (props) => {
                   </Route>
                   <Route path='/technologies-used' exact strict>
                     <TechnologiesUsed></TechnologiesUsed>
+                  </Route>
+                  <Route path='/forgot-password' exact strict>
+                    <ForgotPassword></ForgotPassword>
                   </Route>
                   <Route path='/users/sign-in' exact strict>
                     <SignIn appProps={{session}} setSession={setSession}></SignIn>

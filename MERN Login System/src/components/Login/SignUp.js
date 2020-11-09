@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import { withRouter } from "react-router-dom"
 import { toast } from 'react-toastify'
@@ -19,7 +18,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         Insta Audit
       </Link>{' '}
       {new Date().getFullYear()}
@@ -128,7 +127,7 @@ const particleParams = {
       }
     }
   },
-  "retina_detect": false
+  "retina_detect": true
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -136,7 +135,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(38),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: '20px',
+    paddingLeft: '30px',
+    paddingRight: '30px',
+    paddingBottom: '20px',
+    paddingTop: '20px',
+    backgroundColor: 'white'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -297,7 +302,7 @@ const SignUp = (props) => {
         <Copyright />
       </Box>
     </div>
-    <Particles params={particleParams} style={{marginTop: '-900px', position: 'absolute', zIndex: '-1'}}/>
+    <Particles params={particleParams} style={{marginTop: '-973px', position: 'absolute', zIndex: '-1'}}/>
     </motion.div>
   );
 }

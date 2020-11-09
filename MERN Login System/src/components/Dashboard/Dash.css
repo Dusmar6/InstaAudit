@@ -2,22 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
-#global-container {
-  opacity: 1;
-  transition: 500ms;
-  transform: translateX(0);
-  transform-origin: left;
-}
-
-html.is-animating #global-container {
-  opacity: 1;
-  transform: translateX(100%);
-}
-
-html.is-animating #global-container {
-  opacity: 0;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -27,7 +11,7 @@ html.is-animating #global-container {
 .input-wrapper {
   position: relative;
   width: 300px;
-  height: 300px;
+  height: 300px;  
 }
 
 .input-wrapper:hover .img-display{
@@ -38,8 +22,6 @@ html.is-animating #global-container {
   height:100%;
   width:100%;
   position:relative;
-  margin-top: 2.5%;
-  margin-left: 2.5%;
 
   display:flex;
   justify-content:center;
@@ -47,9 +29,11 @@ html.is-animating #global-container {
 
   border:4px solid #FFFFFF;
   overflow:hidden;
-  background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
+  /* background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%); */
+  background-color: #2590EB;
   background-size: 100% 200%;
-  transition: all 1s;
+  /* background: linear-gradient(to top, #2590EB 0%, #FFFFFF 100%); */
+  transition: all 1.3s;
   color: #FFFFFF;
   font-size:100px;
   
@@ -58,6 +42,8 @@ html.is-animating #global-container {
 
 .input-wrapper:hover .file-upload {
   background-position: 0 -100%;
+  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
   color:#2590EB;
 }
 
