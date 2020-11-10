@@ -142,7 +142,8 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: '30px',
     paddingBottom: '20px',
     paddingTop: '20px',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    opacity: '0.9'
   },
   form: {
     width: '100%', // Fix IE 11 issue.

@@ -5,10 +5,151 @@ import './Dash.css';
 import auth from '../auth';
 import { withRouter } from "react-router-dom";
 import { motion } from 'framer-motion';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Particles from 'react-particles-js';
+
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+const useStyles = makeStyles((theme) => ({
+  
+  frame: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: '0px',
+    backgroundColor: '#fafafa',
+    zIndex: '-100'
+  },
+  btn: {
+    width:'15%',
+    marginLeft: '100px',
+    marginRight: '100px',
+    marginTop: '20px'
+  },
+  uploadContainer: {
+    margin:'30% 20% 0px 30%',
+    padding: '30px 100px, 100px, 30px',
+    display: 'absolute',
+    alignItems: 'center',
+    borderRadius: '20px',
+    backgroundColor: 'white',
+    opacity: '0.9'
+  },
+}));
+
+const particleParams = {
+  "particles": {
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true,
+        "value_area": 1000
+      }
+    },
+    "color": {
+      "value": "#000000"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 12
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 0,
+        "height": 0
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 0,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#000000",
+      "opacity": 0.5,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 1122.388442605866,
+        "rotateY": 561.194221302933
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "window",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "repulse": {
+        "distance": 80,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+}
+// paddingLeft: '30px',
+// paddingRight: '30px',
+// paddingBottom: '20px',
+// paddingTop: '20px',
+
 const Dash = (props) => {
+
+  const classes = useStyles();
 
   console.log(props)
   const [validFlag, setValidFlag] = useState(false);
@@ -94,20 +235,32 @@ const Dash = (props) => {
   };
 
   return (
-    <motion.div class='container' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1}}>
-
-      <div class='input-wrapper'>
-        <input class='img-input' form='upload-form' name="img" type="file" title='' ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
-         {errors.img && window.alert(errors.img.message)}
-        <div class='file-upload'>
-          <i class='fa fa-arrow-up'></i>
+    <motion.div className={classes.frame} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1}}>
+      <div className={classes.uploadContainer}>
+        <div class='input-wrapper'>
+          <input class='img-input' form='upload-form' name="img" type="file" title='' ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
+          {errors.img && window.alert(errors.img.message)}
+          <div class='file-upload'>
+            <i class='fa fa-arrow-up'></i>
+          </div>
+          <img class='img-display' src={baseImage} alt='' />
         </div>
-        <img class='img-display' src={baseImage} alt='' />
       </div>
         
-      <button class="submit" type="submit" form='upload-form'>Submit</button>
-      
-      <button class='logout'
+      {/* <button class="submit" type="submit" >Submit</button> */}
+      <Button
+            type="submit"
+            fullWidth variant="contained"
+            color="primary"
+            className={classes.btn}
+            form='upload-form'
+          >
+            Audit Image
+          </Button>
+      <Button 
+        className={classes.btn}
+        color="primary"
+        fullWidth variant="contained"
         onClick={() => {
           auth.login(() => {
             props.setSession({ jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxMDkyMzcwOTEyMX0.Z6NTR6AhWXJlC9y5GI9pBc_fm3Wc6n7sZYlrdXEOKvY' });
@@ -116,10 +269,11 @@ const Dash = (props) => {
           });
         }}
       > Logout 
-      </button>
+      </Button>
 
       <form id='upload-form' class='upload-form' onSubmit={handleSubmit(onSubmit)}/> 
 
+      <Particles params={particleParams} style={{marginTop: '-973px', position: 'absolute', zIndex: '-2'}}/>
     </motion.div>
   );
 }
