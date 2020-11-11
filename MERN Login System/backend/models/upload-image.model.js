@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const ImageSchema = new Schema({
     name: {type: String, required: true},
     img64: {type: String, required: true},
-    jwt: {type: String, required: true}
 }, 
 {
   timestamps: true,

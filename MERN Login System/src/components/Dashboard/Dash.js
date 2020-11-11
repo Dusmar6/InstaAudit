@@ -20,21 +20,23 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     top: '0px',
     backgroundColor: '#fafafa',
-    zIndex: '-100'
+    zIndex:'10'
   },
   btn: {
-    width:'15%',
-    marginLeft: '100px',
-    marginRight: '100px',
-    marginTop: '20px'
+    width: '60%',
+    top: '45px',
+    left: '74px',
+    marginBottom: '10px'
   },
   uploadContainer: {
-    margin:'30% 20% 0px 30%',
-    padding: '30px 100px, 100px, 30px',
-    display: 'absolute',
-    alignItems: 'center',
+    position: 'absolute',
+    width: '400px',
+    height: '460px',
     borderRadius: '20px',
+    left: '39%',
+    top: '29.5%',
     backgroundColor: 'white',
+    border: 'solid 1px',
     opacity: '0.9'
   },
 }));
@@ -240,15 +242,12 @@ const Dash = (props) => {
         <div class='input-wrapper'>
           <input class='img-input' form='upload-form' name="img" type="file" title='' ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
           {errors.img && window.alert(errors.img.message)}
-          <div class='file-upload'>
+          <div className='file-upload'>
             <i class='fa fa-arrow-up'></i>
           </div>
           <img class='img-display' src={baseImage} alt='' />
         </div>
-      </div>
-        
-      {/* <button class="submit" type="submit" >Submit</button> */}
-      <Button
+        <Button
             type="submit"
             fullWidth variant="contained"
             color="primary"
@@ -270,10 +269,14 @@ const Dash = (props) => {
         }}
       > Logout 
       </Button>
+      </div>
+        
+      {/* <button class="submit" type="submit" >Submit</button> */}
+      
 
       <form id='upload-form' class='upload-form' onSubmit={handleSubmit(onSubmit)}/> 
 
-      <Particles params={particleParams} style={{marginTop: '-973px', position: 'absolute', zIndex: '-2'}}/>
+      <Particles params={particleParams} style={{ position: 'absolute', zIndex: '-333'}}/>
     </motion.div>
   );
 }

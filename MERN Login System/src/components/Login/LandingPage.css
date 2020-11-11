@@ -177,6 +177,20 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
+	#Rectangle_90_r:hover {
+		fill: rgba(229,49,103,1);;
+		box-shadow: 2;
+		stroke-width: 2px;
+	}
+	#Sign_In_Text:hover #Rectangle_90_r{
+		fill: rgba(229,49,103,1);;
+		box-shadow: 2;
+		stroke-width: 2px;
+	}
+	#Sign_In_Text:hover {
+		color: black;
+		text-emphasis-color: black;
+	}
 	.Rectangle_90_r {
 		position: absolute;
 		overflow: visible;
