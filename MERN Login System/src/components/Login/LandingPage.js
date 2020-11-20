@@ -49,7 +49,7 @@ const LandingPage = () => {
                         </rect>
                     </svg>
                     <div id="Log_In">
-                        <span>Sign In</span>
+                        <span id='Sign_In_Text'>Sign In</span>
                     </div>
                 </div>
             </Link>

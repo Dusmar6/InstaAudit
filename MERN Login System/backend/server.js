@@ -1,8 +1,33 @@
+// Express imports
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+
+// Flask imports
+const child = require('child_process').execFile;
+const urlExist = require("url-exist"); 
+const { exec } = require('child_process');
+
+// Create a child process to run the flask server
+child('flask_server.exe', (err, data) => { 
+    if (err) { 
+        console.error(err); 
+        return; 
+    } 
+    console.log(data.toString()); 
+}); 
+
+// Wait for flask server response
+let exists = false;
+// while (!exists) {
+    (async () => {
+        exists = await urlExist("http://127.0.0.1:2080/"); 
+        // Handle result 
+        console.log(`Flask server responsive: ${exists}`);
+    })(); 
+// }
 
 require('dotenv').config();
 
@@ -16,12 +41,6 @@ app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
 app.use(bodyParser.json());
 
-// const uri = process.env.ATLAS_URI;
-// mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true });
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//   console.log("MongoDB database connection established successfully");
-// });
 // MongoDB Configuration
 const db_keys = require('./config/keys').mongo_uri;
 
@@ -41,6 +60,27 @@ require('./config/passport')(passport);
 app.use('/api/users', usersRouter);
 app.use('/api/dashboard', imgRouter);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+// On close of express server event
+process.on('SIGINT', () => {
+    console.log('shutting down');
+    // Kill process of the flask server
+    exec('taskkill /f /t /im flask_server.exe', (err, stdout, stderr) => { 
+        if (err) { 
+          console.log(err) 
+          return;
+        } 
+        // the *entire* stdout and stderr (buffered) 
+        console.log(`stdout: ${stdout}`); 
+        console.log(`stderr: ${stderr}`); 
+    }); 
+    console.log('Flask server terminated')
+    // Close express server
+    server.close();
+  });
+
+//    
+  
