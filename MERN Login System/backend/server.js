@@ -19,16 +19,6 @@ child('flask_server.exe', (err, data) => {
     console.log(data.toString()); 
 }); 
 
-// Wait for flask server response
-let exists = false;
-// while (!exists) {
-    (async () => {
-        exists = await urlExist("http://127.0.0.1:2080/"); 
-        // Handle result 
-        console.log(`Flask server responsive: ${exists}`);
-    })(); 
-// }
-
 require('dotenv').config();
 
 const app = express();

@@ -1,0 +1,6 @@
+
+MERN Login System/backend/flask_server.exe
+*.toc
+*.pyz
+*.pkg
+InstaAuditScraper/__pycache__/flask_server.cpython-36.pyc

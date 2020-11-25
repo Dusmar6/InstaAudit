@@ -164,12 +164,12 @@ const Dash = (props) => {
 
     console.log(`"name": "${imgName}", "img64": "${baseImage}"`)
     axios.post('http://localhost:5000/api/dashboard/upload-image', JSON.parse(`{"name": "${imgName}", "img64": "${baseImage}", "jwt": "${props.session.jwt}"}`)).then(response => {
+      alert(JSON.stringify(response.data));
       console.log(response.data);
     }).catch(error => {
       console.log(error.response.data);
     });
   };
-
   const uploadImage = async (e) => {
     
     const file = e.target.files[0];

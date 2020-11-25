@@ -3,9 +3,11 @@ import sys
 import responder 
 import os 
 from flask import Flask, jsonify, request, make_response
+from flask_cors import CORS
 import colour
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=['POST']) 
 def post_index(): 
@@ -27,6 +29,5 @@ def get_index():
     return make_response(jsonify({'res': 'index'}), 200)
     
 if __name__ == "__main__": 
-    app.run(host='127.0.0.1', port=2080) 
-
+    app.run(host='127.0.0.1', port=2080, debug=True) 
 
