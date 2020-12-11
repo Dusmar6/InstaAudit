@@ -5,20 +5,22 @@ import { motion } from 'framer-motion';
 
 
 const LandingPage = () => {
-    const link = <a class='link' href={'/'}>About</a>;
+    const about_us_link = <a class='link' href={'/about-us'}>About</a>;
+    const discover_link = <a class='link' href={'/discover'}>Discover</a>;
+    const support_link = <a class='link' href={'/support'}>Support</a>;
     return (
-        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1}} class="Webpage">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }} class="Webpage">
             <div id="InstaAudit">
                 <span>InstaAudit</span>
             </div>
             <div id="Discover">
-                <span>Discover</span>
+                <span>{discover_link}</span>
             </div>
             <div id="About">
-                <span>{link}</span>
+                <span>{about_us_link}</span>
             </div>
             <div id="Support">
-                <span>Support</span>
+                <span>{support_link}</span>
             </div>
             <Link href="/users/sign-up">
                 <div id="Group_48">
@@ -27,7 +29,7 @@ const LandingPage = () => {
                         </rect>
                     </svg>
                     <div id="Sign_Up">
-                        <span>Sign Up</span>
+                        <span id='Sign_Up_Text'>Sign Up</span>
                     </div>
                 </div>
             </Link>
@@ -38,7 +40,7 @@ const LandingPage = () => {
                         </rect>
                     </svg>
                     <div id="Get_Started">
-                        <span>Get Started</span>
+                        <span id='Sign_Up_Text'>Get Started</span>
                     </div>
                 </div>
             </Link>
@@ -54,10 +56,14 @@ const LandingPage = () => {
                 </div>
             </Link>
             <div id="Audit_your_posts_before_they_g">
-                <span>Audit your posts before<br/>they go live.</span>
+                <span>Audit your posts before<br />they go live.</span>
             </div>
-            <div id="Lorem_ipsum_dolor_sit_amet_con">
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br/>veniam, quis nostrud exercitation ullamco laboris nisi </span>
+            <div id="Initial_blurb">
+                <span>
+                    Successful marketing over social media can be a daunting task.
+                    Make sure your posts have the best chance to attract potential
+                    customers with the InstaAudit Tool.
+                </span>
             </div>
             <div id="undraw_mobile_marketing_iqbr" class="undraw_mobile_marketing_iqbr">
                 <svg class="Path_302" viewBox="107.036 47.017 703.152 470.636">
@@ -683,8 +689,11 @@ const LandingPage = () => {
             <div id="How_it_Works">
                 <span>How it Works</span>
             </div>
-            <div id="Lorem_ipsum_dolor_sit_amet_con_e">
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br/>veniam, quis nostrud exercitation ullamco laboris nisi </span>
+            <div id="How_blurb">
+                <span>
+                    Not convinced? Peak behind the curtain and see for yourself!
+                    Learn more about how our algorithm ranks your image.
+                </span>
             </div>
             <Link color="inherit" href="/how-it-works">
                 <div id="Learn_More">
@@ -1337,8 +1346,11 @@ const LandingPage = () => {
             <div id="Technologies_Used">
                 <span>Technologies Used</span>
             </div>
-            <div id="Lorem_ipsum_dolor_sit_amet_con_ju">
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br/>veniam, quis nostrud exercitation ullamco laboris nisi </span>
+            <div id="Tech_blurb">
+                <span>
+                    Want to know what we used to make it all work? Check out the InstaAudit
+                    Bill of Materials.
+                </span>
             </div>
             <Link color='inherit' href='/technologies-used'>
                 <div id="Learn_More_jv">
@@ -2214,7 +2226,7 @@ const LandingPage = () => {
                     <span>Copyright</span>
                 </div>
                 <div id="Sagittis_vitae_et_leo_duis_ut_">
-                    <span>Sagittis vitae et leo duis ut diam quam nulla porttitor massa. Ide  <br/>aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus <br/>imperdiet nulla malesuada pellentesque elit.</span>
+                    <span>Sagittis vitae et leo duis ut diam quam nulla porttitor massa. Ide  <br />aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus <br />imperdiet nulla malesuada pellentesque elit.</span>
                 </div>
                 <div id="_2020_Insta_Audit_Co_All_right">
                     <span>Copyright © Insta Audit 2020</span>

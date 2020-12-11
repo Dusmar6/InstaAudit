@@ -99,6 +99,11 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
+	#Rectangle_90:hover {
+		fill: rgb(170, 30, 72);
+		box-shadow: 2;
+		stroke-width: 2px;
+	}
 	.Rectangle_90 {
 		position: absolute;
 		overflow: visible;
@@ -146,6 +151,11 @@
 		left: 0px;
 		top: 0px;
 	}
+	#Rectangle_90_o:hover {
+		fill:  rgb(170, 30, 72);
+		box-shadow: 2;
+		stroke-width: 2px;
+	}
 	#Get_Started {
 		left: 46px;
 		top: 14.5px;
@@ -178,7 +188,7 @@
 		shape-rendering: auto;
 	}
 	#Rectangle_90_r:hover {
-		fill: rgba(229,49,103,1);;
+		fill:  rgb(170, 30, 72);
 		box-shadow: 2;
 		stroke-width: 2px;
 	}
@@ -188,6 +198,15 @@
 		stroke-width: 2px;
 	}
 	#Sign_In_Text:hover {
+		color: black;
+		text-emphasis-color: black;
+	}
+	#Sign_Up_Text:hover #Rectangle_90{
+		fill: rgba(229,49,103,1);;
+		box-shadow: 2;
+		stroke-width: 2px;
+	}
+	#Sign_Up_Text:hover {
 		color: black;
 		text-emphasis-color: black;
 	}
@@ -227,13 +246,12 @@
 		font-size: 65px;
 		color: rgba(34,50,66,1);
 	}
-	#Lorem_ipsum_dolor_sit_amet_con {
+	#Initial_blurb {
 		left: 278px;
-		top: 566px;
+		top: 570px;
 		position: absolute;
 		overflow: visible;
-		width: 515px;
-		white-space: nowrap;
+		width: 600px;
 		line-height: 27px;
 		margin-top: -5px;
 		text-align: left;
@@ -2114,7 +2132,7 @@
 	}
 	#How_it_Works {
 		left: 373px;
-		top: 1412px;
+		top: 1420px;
 		position: absolute;
 		overflow: visible;
 		width: 272px;
@@ -2126,13 +2144,12 @@
 		font-size: 46px;
 		color: rgba(34,50,66,1);
 	}
-	#Lorem_ipsum_dolor_sit_amet_con_e {
+	#How_blurb {
 		left: 373px;
-		top: 1491px;
+		top: 1510px;
 		position: absolute;
 		overflow: visible;
 		width: 515px;
-		white-space: nowrap;
 		line-height: 27px;
 		margin-top: -5px;
 		text-align: left;
@@ -2160,8 +2177,8 @@
 		position: absolute;
 		width: 20.073px;
 		height: 20.073px;
-		left: 464px;
-		top: 1609px;
+		left: 475px;
+		top: 1611px;
 		overflow: visible;
 	}
 	#Group_2 {
@@ -4114,7 +4131,7 @@
 	}
 	#Technologies_Used {
 		left: 1033px;
-		top: 1412px;
+		top: 1420px;
 		position: absolute;
 		overflow: visible;
 		width: 380px;
@@ -4126,13 +4143,12 @@
 		font-size: 46px;
 		color: rgba(34,50,66,1);
 	}
-	#Lorem_ipsum_dolor_sit_amet_con_ju {
+	#Tech_blurb {
 		left: 1033px;
-		top: 1491px;
+		top: 1510px;
 		position: absolute;
 		overflow: visible;
 		width: 515px;
-		white-space: nowrap;
 		line-height: 27px;
 		margin-top: -5px;
 		text-align: left;
@@ -4160,8 +4176,8 @@
 		position: absolute;
 		width: 20.073px;
 		height: 20.073px;
-		left: 1124px;
-		top: 1609px;
+		left: 1135px;
+		top: 1611px;
 		overflow: visible;
 	}
 	#Group_2_jx {
