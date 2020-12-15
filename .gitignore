@@ -4,3 +4,5 @@ MERN Login System/backend/flask_server.exe
 *.pyz
 *.pkg
 InstaAuditScraper/__pycache__/flask_server.cpython-36.pyc
+InstaAuditScraper/converted20.csv
+InstaAuditScraper/converted20.csv

@@ -1,6 +1,9 @@
 import metrics as m
 import numpy as np
 import base64
+import statsmodels.api as sm    
+import pandas as pd
+from scipy import stats
 
 def test_image(path):
     data = {'clipping':{},
@@ -10,8 +13,7 @@ def test_image(path):
             'noise':{},
             'color_temp':{},
             'saturation':{},
-            'colorfulness':{},
-            'dom_color':{}}
+            'colorfulness':{}}
     
     
     data['clipping'], s1 = clipping(path)
@@ -22,13 +24,15 @@ def test_image(path):
     data['color_temp'],s6 = temp(path)
     data['saturation'],s7 = sat(path)
     data['colorfulness'],s8 = color(path)
-    data['colorfulness'],s9 = color(path)
     
-    s = int(s1+s2+s3+s4+s5+s6+s7+s8+s9)
+    s = int(s1+s2+s3+s4+s5+s6+s7+s8)
     
-    data['overall_score'] =s    
+    data['non_ml_score'] = s    
+    
+    data['ml_score_percentile'] = ml_ranking(data)
     return data
     
+
     
     
 def clipping(path):
@@ -198,13 +202,40 @@ def color(path):
     
     return data, s
 
-
-'''
-def main():
+def ml_ranking(data):
     
-    with open("image.jpg", "wb") as fh:
-        fh.write(base64.decodebytes(img_data))
+    print(data)
 
+    df = pd.read_csv("converted.csv")
+    
+    X = df[['colorfulness','sharpness','total_clip','saturation','noise','contrast','color_temp']]
+    y = df['ranking']
+    
+    model = sm.OLS(y, X).fit()
+    predictions = model.predict(X)
+    model.summary()
 
-'''
+    preds = []
+    for p in predictions:
+        preds.append(p)
+    
+    preds.sort()
+    test = []
+    test.append([
+        data['colorfulness']['score'],
+        data['sharpness']['score'],
+        data['clipping']['score'],
+        data['saturation']['score'],
+        data['noise']['score'],
+        data['contrast']['score'],
+        data['color_temp']['score'],
+        ])
+
+    perc = model.predict(test)
+    
+    
+    return stats.percentileofscore(preds, perc)
+    
+ 
+
 
