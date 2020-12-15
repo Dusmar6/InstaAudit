@@ -5,13 +5,14 @@ import { motion } from 'framer-motion';
 
 
 const LandingPage = () => {
+    const home_link = <a class='link' href={'/'}>InstaAudit</a>;
     const about_us_link = <a class='link' href={'/about-us'}>About</a>;
     const discover_link = <a class='link' href={'/discover'}>Discover</a>;
     const support_link = <a class='link' href={'/support'}>Support</a>;
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }} class="Webpage">
             <div id="InstaAudit">
-                <span>InstaAudit</span>
+                <span>{home_link}</span>
             </div>
             <div id="Discover">
                 <span>{discover_link}</span>
@@ -33,17 +34,6 @@ const LandingPage = () => {
                     </div>
                 </div>
             </Link>
-            <Link color="inherit" href="/api/dashboard">
-                <div id="Group_50">
-                    <svg class="Rectangle_90_o">
-                        <rect id="Rectangle_90_o" rx="30" ry="30" x="0" y="0" width="190" height="60">
-                        </rect>
-                    </svg>
-                    <div id="Get_Started">
-                        <span id='Sign_Up_Text'>Get Started</span>
-                    </div>
-                </div>
-            </Link>
             <Link color="inherit" href="/users/sign-in">
                 <div id="Group_49">
                     <svg class="Rectangle_90_r">
@@ -55,6 +45,18 @@ const LandingPage = () => {
                     </div>
                 </div>
             </Link>
+            <Link color="inherit" href="/api/dashboard">
+                <div id="Group_50">
+                    <svg class="Rectangle_90_o">
+                        <rect id="Rectangle_90_o" rx="30" ry="30" x="0" y="0" width="190" height="60">
+                        </rect>
+                    </svg>
+                    <div id="Get_Started">
+                        <span id='Sign_Up_Text'>Get Started</span>
+                    </div>
+                </div>
+            </Link>
+
             <div id="Audit_your_posts_before_they_g">
                 <span>Audit your posts before<br />they go live.</span>
             </div>
@@ -2201,7 +2203,7 @@ const LandingPage = () => {
                     <span>Terms</span>
                 </div>
                 <div id="About_pu">
-                    <span>About</span>
+                    <span>{about_us_link}</span>
                 </div>
                 <div id="instaauditcogmailcom">
                     <span>instaaudit.co@gmail.com</span>

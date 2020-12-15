@@ -1,0 +1,897 @@
+a {
+	color: inherit;
+}
+a:hover {
+    color: rgba(52,128,227,1);
+    text-decoration: none;
+}
+#How_It_Works {
+    position: absolute;
+	width: 100%;
+	height: 1150px;
+	background-color: rgba(255,255,255,1);
+	overflow-x: hidden;
+	overflow-y: visible; 
+}
+#Component_10__1 {
+    position: absolute;
+    width: 543.832px;
+    height: 557.433px;
+    left: -61.832px;
+    top: 874.018px;
+    overflow: visible;
+}
+#Path_652 {
+    fill: rgba(229,49,103,1);
+}
+.Path_652 {
+    overflow: visible;
+    position: absolute;
+    width: 543.832px;
+    height: 557.433px;
+    left: 0px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Image_-_How_It_Works {
+    position: absolute;
+    width: 777.399px;
+    height: 592.625px;
+    left: 1028px;
+    top: 244.069px;
+    overflow: visible;
+}
+#Path_684 {
+    opacity: 0.19;
+    fill: rgba(52,128,227,1);
+}
+.Path_684 {
+    overflow: visible;
+    position: absolute;
+    width: 755.766px;
+    height: 592.625px;
+    left: 21.633px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Group_48p {
+    position: absolute;
+    width: 744px;
+    height: 539.286px;
+    left: 0px;
+    top: 26.931px;
+    overflow: visible;
+}
+#Path_651 {
+    fill: rgba(242,242,242,1);
+}
+.Path_651 {
+    overflow: visible;
+    position: absolute;
+    width: 393px;
+    height: 130px;
+    left: 81.114px;
+    top: 404.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_652_n {
+    fill: rgba(52,128,227,1);
+}
+.Path_652_n {
+    overflow: visible;
+    position: absolute;
+    width: 408px;
+    height: 137px;
+    left: 74.114px;
+    top: 401.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_653 {
+    fill: rgba(204,204,204,1);
+}
+.Path_653 {
+    overflow: hidden;
+    position: absolute;
+    width: 352px;
+    height: 2px;
+    left: 123.114px;
+    top: 432.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_654 {
+    fill: rgba(204,204,204,1);
+}
+.Path_654 {
+    overflow: visible;
+    position: absolute;
+    width: 352px;
+    height: 2px;
+    left: 123.114px;
+    top: 456.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_655 {
+    fill: rgba(204,204,204,1);
+}
+.Path_655 {
+    overflow: visible;
+    position: absolute;
+    width: 352px;
+    height: 2px;
+    left: 123.114px;
+    top: 480.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_656 {
+    fill: rgba(204,204,204,1);
+}
+.Path_656 {
+    overflow: visible;
+    position: absolute;
+    width: 352px;
+    height: 2px;
+    left: 123.114px;
+    top: 504.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_657 {
+    fill: rgba(242,242,242,1);
+}
+.Path_657 {
+    overflow: visible;
+    position: absolute;
+    width: 360.776px;
+    height: 320.851px;
+    left: 365.056px;
+    top: 209.134px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_658 {
+    fill: rgba(229,49,103,1);
+}
+.Path_658 {
+    overflow: visible;
+    position: absolute;
+    width: 373.812px;
+    height: 332.82px;
+    left: 358.101px;
+    top: 203.268px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_659 {
+    fill: rgba(204,204,204,1);
+}
+.Path_659 {
+    overflow: visible;
+    position: absolute;
+    width: 274.538px;
+    height: 221.597px;
+    left: 434.098px;
+    top: 230.741px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_660 {
+    fill: rgba(204,204,204,1);
+}
+.Path_660 {
+    overflow: visible;
+    position: absolute;
+    width: 274.538px;
+    height: 221.597px;
+    left: 419.04px;
+    top: 249.429px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_661 {
+    fill: rgba(204,204,204,1);
+}
+.Path_661 {
+    overflow: visible;
+    position: absolute;
+    width: 274.538px;
+    height: 221.597px;
+    left: 403.982px;
+    top: 268.118px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_662 {
+    fill: rgba(204,204,204,1);
+}
+.Path_662 {
+    overflow: visible;
+    position: absolute;
+    width: 274.537px;
+    height: 221.597px;
+    left: 388.924px;
+    top: 286.806px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_663 {
+    fill: rgba(204,204,204,1);
+}
+.Path_663 {
+    overflow: visible;
+    position: absolute;
+    width: 744px;
+    height: 2px;
+    left: 0px;
+    top: 537.286px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_664 {
+    fill: rgba(255,184,184,1);
+}
+.Path_664 {
+    overflow: visible;
+    position: absolute;
+    width: 16.873px;
+    height: 44.097px;
+    left: 321.212px;
+    top: 346.525px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_665 {
+    fill: rgba(47,46,65,1);
+}
+.Path_665 {
+    overflow: visible;
+    position: absolute;
+    width: 35.93px;
+    height: 13.882px;
+    left: 304.6px;
+    top: 387.355px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_666 {
+    fill: rgba(255,184,184,1);
+}
+.Path_666 {
+    overflow: visible;
+    position: absolute;
+    width: 16.873px;
+    height: 44.097px;
+    left: 204.417px;
+    top: 346.525px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_667 {
+    fill: rgba(47,46,65,1);
+}
+.Path_667 {
+    overflow: visible;
+    position: absolute;
+    width: 35.93px;
+    height: 13.882px;
+    left: 187.806px;
+    top: 387.355px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_668 {
+    fill: rgba(47,46,65,1);
+}
+.Path_668 {
+    overflow: visible;
+    position: absolute;
+    width: 64.5px;
+    height: 60.5px;
+    left: 259.471px;
+    top: 26.283px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Ellipse_80 {
+    fill: rgba(255,184,184,1);
+}
+.Ellipse_80 {
+    position: absolute;
+    overflow: visible;
+    width: 49.122px;
+    height: 49.122px;
+    left: 267.16px;
+    top: 39.381px;
+}
+#Path_669 {
+    fill: rgba(255,184,184,1);
+}
+.Path_669 {
+    overflow: visible;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: 406.488px;
+    top: 196.118px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_670 {
+    fill: rgba(255,184,184,1);
+}
+.Path_670 {
+    overflow: visible;
+    position: absolute;
+    width: 43.875px;
+    height: 18.884px;
+    left: 155.125px;
+    top: 145.797px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_671 {
+    fill: rgba(216,223,232,1);
+}
+.Path_671 {
+    overflow: visible;
+    position: absolute;
+    width: 110.683px;
+    height: 60.777px;
+    left: 177.629px;
+    top: 102.74px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_672 {
+    fill: rgba(34,37,41,1);
+}
+.Path_672 {
+    overflow: visible;
+    position: absolute;
+    width: 142.893px;
+    height: 212.012px;
+    left: 201.107px;
+    top: 166.096px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_673 {
+    fill: rgba(216,223,232,1);
+}
+.Path_673 {
+    overflow: visible;
+    position: absolute;
+    width: 72.277px;
+    height: 88.522px;
+    left: 250.788px;
+    top: 93.484px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_674 {
+    fill: rgba(255,184,184,1);
+}
+.Path_674 {
+    overflow: visible;
+    position: absolute;
+    width: 40.589px;
+    height: 32.634px;
+    left: 277.693px;
+    top: 160.65px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_675 {
+    fill: rgba(216,223,232,1);
+}
+.Path_675 {
+    overflow: visible;
+    position: absolute;
+    width: 53.905px;
+    height: 78.535px;
+    left: 293.83px;
+    top: 102.977px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_676 {
+    fill: rgba(47,46,65,1);
+}
+.Path_676 {
+    overflow: visible;
+    position: absolute;
+    width: 42.5px;
+    height: 23.686px;
+    left: 269.965px;
+    top: 35.347px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_677 {
+    fill: rgba(47,46,65,1);
+}
+.Path_677 {
+    overflow: visible;
+    position: absolute;
+    width: 81.961px;
+    height: 108.531px;
+    left: 289.917px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_678 {
+    fill: rgba(52,128,227,1);
+}
+.Path_678 {
+    overflow: visible;
+    position: absolute;
+    width: 90px;
+    height: 54.297px;
+    left: 108.614px;
+    top: 46.786px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_679 {
+    fill: rgba(52,128,227,1);
+}
+.Path_679 {
+    overflow: visible;
+    position: absolute;
+    width: 136.604px;
+    height: 60.466px;
+    left: 84.872px;
+    top: 11.114px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Ellipse_81 {
+    fill: rgba(63,61,86,1);
+}
+.Ellipse_81 {
+    position: absolute;
+    overflow: visible;
+    width: 12px;
+    height: 12px;
+    left: 110.114px;
+    top: 82.286px;
+}
+#Path_680 {
+    opacity: 0.2;
+    fill: rgba(0,0,0,1);
+}
+.Path_680 {
+    overflow: visible;
+    position: absolute;
+    width: 135.609px;
+    height: 33.094px;
+    left: 85.786px;
+    top: 38.6px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_681 {
+    fill: rgba(63,61,86,1);
+}
+.Path_681 {
+    overflow: visible;
+    position: absolute;
+    width: 35.996px;
+    height: 48.477px;
+    left: 115.618px;
+    top: 39.786px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#InstaAudit {
+    left: 278px;
+    top: 52px;
+    position: absolute;
+    overflow: visible;
+    width: 138px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(52,128,227,1);
+}
+#Discover {
+    left: 1096px;
+    top: 57px;
+    position: absolute;
+    overflow: visible;
+    width: 76px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(112,112,112,1);
+}
+#About {
+    left: 1002px;
+    top: 57px;
+    position: absolute;
+    overflow: visible;
+    width: 55px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(112,112,112,1);
+}
+#Support {
+    left: 1211px;
+    top: 57px;
+    position: absolute;
+    overflow: visible;
+    width: 72px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(112,112,112,1);
+}
+#Group_48 {
+    position: absolute;
+    width: 130px;
+    height: 51px;
+    left: 1342px;
+    top: 45px;
+    overflow: visible;
+}
+#Rectangle_90 {
+    fill: rgba(229,49,103,1);
+    stroke: rgba(112,112,112,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+#Rectangle_90:hover {
+    fill: rgb(170, 30, 72);
+    box-shadow: 2;
+    stroke-width: 2px;
+}
+.Rectangle_90 {
+    position: absolute;
+    overflow: visible;
+    width: 130px;
+    height: 51px;
+    left: 0px;
+    top: 0px;
+}
+#Sign_Up {
+    left: 30px;
+    top: 10px;
+    position: absolute;
+    overflow: visible;
+    width: 71px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(255,255,255,1);
+}
+#Sign_Up_Text:hover #Rectangle_90{
+    fill: rgba(229,49,103,1);;
+    box-shadow: 2;
+    stroke-width: 2px;
+}
+#Sign_Up_Text:hover {
+    color: black;
+    text-emphasis-color: black;
+}
+#Sign_In {
+    left: 36px;
+    top: 14px;
+    position: absolute;
+    overflow: visible;
+    width: 53px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(255,255,255,1);
+}
+#Group_49 {
+    position: absolute;
+    width: 130px;
+    height: 51px;
+    left: 1512px;
+    top: 45px;
+    overflow: visible;
+}
+#Rectangle_90_r {
+    fill: rgba(229,49,103,1);
+    stroke: rgba(112,112,112,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+#Rectangle_90_r:hover {
+    fill:  rgb(170, 30, 72);
+    box-shadow: 2;
+    stroke-width: 2px;
+}
+#Sign_In_Text:hover #Rectangle_90_r{
+    fill: rgba(229,49,103,1);;
+    box-shadow: 2;
+    stroke-width: 2px;
+}
+#Sign_In_Text:hover {
+    color: black;
+    text-emphasis-color: black;
+}
+#Log_In {
+    left: 38px;
+    top: 10px;
+    position: absolute;
+    overflow: visible;
+    width: 56px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(255,255,255,1);
+}
+#Main_Text_-_How_It_Works_ {
+    left: 250px;
+    top: 363px;
+    position: absolute;
+    overflow: visible;
+    width: 386px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 65px;
+    color: rgba(34,50,66,1);
+}
+#Sub_Text_-_How_it_Works {
+    left: 250px;
+    top: 466.5px;
+    position: absolute;
+    overflow: visible;
+    width: 700px;
+    height: 319px;
+    line-height: 27px;
+    margin-top: -5px;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 17px;
+    color: rgba(101,119,131,1);
+}
+#Shape_-_Blue_Top_Right {
+    fill: rgba(52,128,227,1);
+    stroke: rgba(112,112,112,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Shape_-_Blue_Top_Right {
+    overflow: visible;
+    position: absolute;
+    width: 271.246px;
+    height: 281.198px;
+    left: -20.932px;
+    top: -126.679px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Group_57 {
+    position: absolute;
+    width: 1330px;
+    height: 175px;
+    left: 278px;
+    top: 1000px;
+    overflow: visible;
+    z-index: 1;
+}
+#InstaAudit_pp {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 84px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgba(34,50,66,1);
+}
+#Legal {
+    left: 966px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 43px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgba(34,50,66,1);
+}
+#Navigation {
+    left: 1242px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 89px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgba(34,50,66,1);
+}
+#About_pu {
+    left: 1242px;
+    top: 47px;
+    position: absolute;
+    overflow: visible;
+    width: 47px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#Contact_Us {
+    left: 690px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 87px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgba(34,50,66,1);
+}
+#Terms {
+    left: 966px;
+    top: 47px;
+    position: absolute;
+    overflow: visible;
+    width: 45px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#instaauditcogmailcom {
+    left: 690px;
+    top: 47px;
+    position: absolute;
+    overflow: visible;
+    width: 190px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#ID1_323_529-3316 {
+    left: 690px;
+    top: 94px;
+    position: absolute;
+    overflow: visible;
+    width: 140px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#Sign_In_b {
+    left: 1242px;
+    top: 94px;
+    position: absolute;
+    overflow: visible;
+    width: 53px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#Privacy_ {
+    left: 966px;
+    top: 94px;
+    position: absolute;
+    overflow: visible;
+    width: 53px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#Sign_Up_b {
+    left: 1242px;
+    top: 141px;
+    position: absolute;
+    overflow: visible;
+    width: 60px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#Copyright {
+    left: 966px;
+    top: 141px;
+    position: absolute;
+    overflow: visible;
+    width: 75px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: rgba(112,112,112,1);
+}
+#Mission_Statement {
+    left: 0px;
+    top: 51px;
+    position: absolute;
+    overflow: visible;
+    width: 480px;
+    white-space: nowrap;
+    line-height: 27px;
+    margin-top: -5px;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 17px;
+    color: rgba(101,119,131,1);
+}
+#All_Rights_Reserved {
+    left: 0px;
+    top: 153px;
+    position: absolute;
+    overflow: visible;
+    width: 301px;
+    white-space: nowrap;
+    line-height: 27px;
+    margin-top: -5px;
+    text-align: left;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 17px;
+    color: rgba(101,119,131,1);
+}
+#Path_653_cb {
+    fill: rgba(229,49,103,1);
+}
+.Path_653_cb {
+    z-index: 0;
+    overflow: visible;
+    position: absolute;
+    width: 500.431px;
+    height: 254.329px;
+    left: 1437.151px;
+    top: 1127.4px;
+    transform: matrix(1,0,0,1,0,0);
+}
