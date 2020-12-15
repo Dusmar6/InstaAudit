@@ -5,7 +5,7 @@ import matplotlib.pyplot as p
 import time
 import datetime
 
-file = "C:\\Users\\dusma\\Documents\\GitHub\\491-Proj\\InstaAuditScraper\\posts\\gucci\\posts.txt"
+file = "C:\\Users\\dusma\\Documents\\GitHub\\491-Proj\\InstaAuditScraper\\combined.txt"
 
 account = ac.Account('walmart')
 
@@ -32,6 +32,7 @@ with open(file) as json_file:
         
 
 def visualizer(metric):
+    
     left = []
     bottom = []
     if metric == 'colorfulness':
@@ -50,6 +51,10 @@ def visualizer(metric):
         for post in account.posts:
             bottom.append(post.ranking)
             left.append(post.face)
+            
+        print(len(left))
+        print(left.count(1))
+        print(left.count(0))
     elif metric == 'saturation':
         for post in account.posts:
             bottom.append(post.ranking)
@@ -78,7 +83,7 @@ def visualizer(metric):
 
         
     ## ['colorfulness','sharpness', 'clipping','face','saturation','noise','contrast','color_temp','timestamp']
-metrics = ['timestamp']
+metrics = ['colorfulness']
 
 for metric in metrics:
     visualizer(metric)
