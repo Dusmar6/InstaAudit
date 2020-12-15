@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const LandingPage = () => {
     const home_link = <a class='link' href={'/'}>InstaAudit</a>;
-    const about_us_link = <a class='link' href={'/about-us'}>About</a>;
+    const about_us_link = <a class='link' href={'/about'}>About</a>;
     const discover_link = <a class='link' href={'/discover'}>Discover</a>;
     const support_link = <a class='link' href={'/support'}>Support</a>;
     return (

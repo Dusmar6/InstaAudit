@@ -8,19 +8,20 @@ import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Particles from 'react-particles-js';
+import { toast } from 'react-toastify';
 
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const useStyles = makeStyles((theme) => ({
-  
+
   frame: {
     position: 'absolute',
     width: '100%',
     height: '100%',
     top: '0px',
     backgroundColor: '#fafafa',
-    zIndex:'10'
+    zIndex: '10'
   },
   btn: {
     width: '60%',
@@ -148,8 +149,18 @@ const particleParams = {
 // paddingRight: '30px',
 // paddingBottom: '20px',
 // paddingTop: '20px',
+toast.configure()
 
 const Dash = (props) => {
+
+  const notify = message => {
+    toast.error(
+      message,
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000
+      })
+  }
 
   const classes = useStyles();
 
@@ -171,8 +182,14 @@ const Dash = (props) => {
     });
   };
   const uploadImage = async (e) => {
-    
+
     const file = e.target.files[0];
+
+    if (file.type.substring(0, 5) !== "image") {
+      notify("Invalid file type")
+      return
+    }
+
     if (file !== undefined) {
       console.log(e.target.files[0]);
       const base64 = await convertBase64(file);
@@ -181,49 +198,49 @@ const Dash = (props) => {
     }
   };
 
+  // const validateImage = async (value) => {
+  //   await sleep(1000);
+  //   if (value[0] !== undefined) {
+  //     let fileName = value[0].name;
+  //     let ext = fileName.substring(fileName.length - 3, fileName.length);
+  //     console.log(fileName);
+  //     console.log(`ext: ${ext}`);
+  //     if (ext.toLowerCase() === "png" || ext.toLowerCase() === "jpg") {
+  //       console.log("png or jpg")
+  //       setValidFlag(true);
+  //       setImgName(fileName);
+  //       return true
+  //     }
+  //     else {
+  //       setValidFlag(false);
+  //       notify("Invalid file type")
+  //       return false || "Invalid file type"
+  //     }
+  //   }
+  //   if (imgName !== '') {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
-  const validateImage = async (value) => {
-      await sleep(1000);
-      if (value[0] !== undefined) {
-        let fileName = value[0].name;
-        let ext = fileName.substring(fileName.length - 3, fileName.length);
-        console.log(fileName);
-        console.log(`ext: ${ext}`);
-        if (ext.toLowerCase() === "png" || ext.toLowerCase() === "jpg") {
-          console.log("png or jpg")
-          setValidFlag(true);
-          setImgName(fileName);
-          return true
-        }
-        else {
-          setValidFlag(false);
-          return false || "Invalid file type"
-        }
-      }
-      if (imgName !== '') {
-        return true;
-      }
-      return false;
-  }
-  
   const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
       try {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
-        
+
         fileReader.onload = () => {
           setValidFlag(true);
           const result = fileReader.result;
           setImgSrc(result);
           resolve(result);
         };
-        
+
         fileReader.onerror = (error) => {
           reject(error);
         };
       } catch (error) {
-        if(!validFlag) {
+        if (!validFlag) {
           reject(error);
         }
         else {
@@ -237,46 +254,53 @@ const Dash = (props) => {
   };
 
   return (
-    <motion.div className={classes.frame} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1}}>
+    <motion.div className={classes.frame} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
       <div className={classes.uploadContainer}>
         <div class='input-wrapper'>
-          <input class='img-input' form='upload-form' name="img" type="file" title='' ref={register({ validate: validateImage })} onChange={(e) => { uploadImage(e); }} />
-          {errors.img && window.alert(errors.img.message)}
+          <input
+            class='img-input'
+            form='upload-form'
+            name="img"
+            type="file"
+            title=''
+            onChange={(e) => { uploadImage(e); }}
+            accept="image/*"
+          />
           <div className='file-upload'>
             <i class='fa fa-arrow-up'></i>
           </div>
           <img class='img-display' src={baseImage} alt='' />
         </div>
         <Button
-            type="submit"
-            fullWidth variant="contained"
-            color="primary"
-            className={classes.btn}
-            form='upload-form'
-          >
-            Audit Image
+          type="submit"
+          fullWidth variant="contained"
+          color="primary"
+          className={classes.btn}
+          form='upload-form'
+        >
+          Audit Image
           </Button>
-      <Button 
-        className={classes.btn}
-        color="primary"
-        fullWidth variant="contained"
-        onClick={() => {
-          auth.login(() => {
-            props.setSession({ jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxMDkyMzcwOTEyMX0.Z6NTR6AhWXJlC9y5GI9pBc_fm3Wc6n7sZYlrdXEOKvY' });
-            props.history.push("/");
-            localStorage.removeItem('token');
-          });
-        }}
-      > Logout 
+        <Button
+          className={classes.btn}
+          color="primary"
+          fullWidth variant="contained"
+          onClick={() => {
+            auth.login(() => {
+              props.setSession({ jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxMDkyMzcwOTEyMX0.Z6NTR6AhWXJlC9y5GI9pBc_fm3Wc6n7sZYlrdXEOKvY' });
+              props.history.push("/");
+              localStorage.removeItem('token');
+            });
+          }}
+        > Logout
       </Button>
       </div>
-        
+
       {/* <button class="submit" type="submit" >Submit</button> */}
-      
 
-      <form id='upload-form' class='upload-form' onSubmit={handleSubmit(onSubmit)}/> 
 
-      <Particles params={particleParams} style={{ position: 'absolute', zIndex: '-333'}}/>
+      <form id='upload-form' class='upload-form' onSubmit={handleSubmit(onSubmit)} />
+
+      <Particles params={particleParams} style={{ position: 'absolute', zIndex: '-333' }} />
     </motion.div>
   );
 }

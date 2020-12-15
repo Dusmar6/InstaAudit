@@ -655,22 +655,25 @@ a:hover {
     font-size: 17px;
     color: rgba(101,119,131,1);
 }
+#Group_54 {
+    mix-blend-mode: normal;
+    position: absolute;
+    width: 326.349px;
+    height: 211.601px;
+    left: -47.807px;
+    top: -66.586px;
+    overflow: visible;
+}
 #Shape_-_Blue_Top_Right {
     fill: rgba(52,128,227,1);
-    stroke: rgba(112,112,112,1);
-    stroke-width: 1px;
-    stroke-linejoin: miter;
-    stroke-linecap: butt;
-    stroke-miterlimit: 4;
-    shape-rendering: auto;
 }
 .Shape_-_Blue_Top_Right {
     overflow: visible;
     position: absolute;
-    width: 271.246px;
-    height: 281.198px;
-    left: -20.932px;
-    top: -126.679px;
+    width: 326.349px;
+    height: 211.601px;
+    left: 0px;
+    top: 0px;
     transform: matrix(1,0,0,1,0,0);
 }
 #Group_57 {

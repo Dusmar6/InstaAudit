@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const HowItWorks = () => {
     const home_link = <a class='link' href={'/'}>InstaAudit</a>;
-    const about_us_link = <a class='link' href={'/about-us'}>About</a>;
+    const about_us_link = <a class='link' href={'/about'}>About</a>;
     const discover_link = <a class='link' href={'/discover'}>Discover</a>;
     const support_link = <a class='link' href={'/support'}>Support</a>;
     const sign_in_link = <a class='link' href={'/users/sign-in'}>Sign In</a>;
@@ -212,10 +212,12 @@ const HowItWorks = () => {
                     et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
                 </span>
             </div>
-            <svg class="Shape_-_Blue_Top_Right" viewBox="-202.932 2029.321 270.256 280.179">
-                <path id="Shape_-_Blue_Top_Right" d="M 49.88746643066406 2039.725341796875 C 49.88746643066406 2039.725341796875 68.01300048828125 2152.1220703125 67.30315399169922 2154.6689453125 C 61.05845642089844 2177.079345703125 38.21449279785156 2309.37646484375 -18.06744766235352 2309.37646484375 C -76.72751617431641 2312.54736328125 -202.9320831298828 2253.646240234375 -202.9320831298828 2253.646240234375 L -202.9320831298828 2113.347412109375 L -90.36818695068359 2029.32080078125 L 49.88746643066406 2039.725341796875 Z">
-                </path>
-            </svg>
+            <div id="Group_54">
+                <svg class="Shape_-_Blue_Top_Right" viewBox="-480.807 2069.414 326.349 211.601">
+                    <path id="Shape_-_Blue_Top_Right" d="M -154.6356658935547 2069.413818359375 C -154.6356658935547 2069.413818359375 -145.3406066894531 2232.49951171875 -261.1061096191406 2273.90478515625 C -376.8716125488281 2315.31005859375 -480.8070678710938 2162.3642578125 -480.8070678710938 2162.3642578125 L -474.8920593261719 2069.413818359375 L -154.6356658935547 2069.413818359375 Z">
+                    </path>
+                </svg>
+            </div>
             <div id="Group_57">
                 <div id="InstaAudit_pp">
                     <span>InstaAudit</span>
