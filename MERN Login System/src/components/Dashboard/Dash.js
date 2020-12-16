@@ -197,6 +197,7 @@ const Dash = (props) => {
       ml_score_percentile: 0
     }
     setGrade(resetGrade)
+    setRespFlag(false)
     console.log(baseImage)
     if (!baseImage) {
       alert("No Image Selected")
