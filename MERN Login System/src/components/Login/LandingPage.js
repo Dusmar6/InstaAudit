@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import './LandingPage.css';
 import Link from '@material-ui/core/Link';
 import { motion } from 'framer-motion';
@@ -23,6 +23,7 @@ const LandingPage = () => {
             <div id="Support">
                 <span>{support_link}</span>
             </div>
+
             <Link href="/users/sign-up">
                 <div id="Group_48">
                     <svg class="Rectangle_90">
@@ -56,7 +57,6 @@ const LandingPage = () => {
                     </div>
                 </div>
             </Link>
-
             <div id="Audit_your_posts_before_they_g">
                 <span>Audit your posts before<br />they go live.</span>
             </div>

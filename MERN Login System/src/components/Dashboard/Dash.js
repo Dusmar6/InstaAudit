@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import './Dash.css';
@@ -9,9 +9,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Particles from 'react-particles-js';
 import { toast } from 'react-toastify';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import BarGraph from './BarGraph.js';
 
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+// const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const useStyles = makeStyles((theme) => ({
 
@@ -152,7 +155,16 @@ const particleParams = {
 toast.configure()
 
 const Dash = (props) => {
-
+  const [grade, setGrade] = useState([{
+    clipping: "Awful",
+    color_temp: "Awful",
+    colorfulness: "Awful",
+    contrast: "Awful",
+    sharpness: "Awful",
+    saturation: "Awful",
+    face: 0,
+    ml_score_percentile: 0
+  }])
   const notify = message => {
     toast.error(
       message,
@@ -166,17 +178,46 @@ const Dash = (props) => {
 
   console.log(props)
   const [validFlag, setValidFlag] = useState(false);
-  const [baseImage, setBaseImage] = useState("");
+  const [baseImage, setBaseImage] = useState(false);
   const [imgSrc, setImgSrc] = useState("");
   const [imgName, setImgName] = useState("");
   const { handleSubmit, register, errors } = useForm();
+  const [respFlag, setRespFlag] = useState(false);
+
 
   const onSubmit = data => {
-
+    const resetGrade = {
+      clipping: "Awful",
+      color_temp: "Awful",
+      colorfulness: "Awful",
+      contrast: "Awful",
+      sharpness: "Awful",
+      saturation: "Awful",
+      face: 0,
+      ml_score_percentile: 0
+    }
+    setGrade(resetGrade)
+    console.log(baseImage)
+    if (!baseImage) {
+      alert("No Image Selected")
+      return
+    }
     console.log(`"name": "${imgName}", "img64": "${baseImage}"`)
     axios.post('http://localhost:5000/api/dashboard/upload-image', JSON.parse(`{"name": "${imgName}", "img64": "${baseImage}", "jwt": "${props.session.jwt}"}`)).then(response => {
-      alert(JSON.stringify(response.data));
+      const gr = {
+        clipping: response.data.clipping.resp,
+        color_temp: response.data.color_temp.resp,
+        colorfulness: response.data.colorfulness.resp,
+        contrast: response.data.contrast.resp,
+        sharpness: response.data.sharpness.resp,
+        saturation: response.data.saturation.resp,
+        face: response.data.face.grade,
+        ml_score_percentile: response.data.ml_score_percentile
+      }
+      setGrade(gr)
+      setRespFlag(true)
       console.log(response.data);
+      // alert(response.data.clipping);
     }).catch(error => {
       console.log(error.response.data);
     });
@@ -198,30 +239,7 @@ const Dash = (props) => {
     }
   };
 
-  // const validateImage = async (value) => {
-  //   await sleep(1000);
-  //   if (value[0] !== undefined) {
-  //     let fileName = value[0].name;
-  //     let ext = fileName.substring(fileName.length - 3, fileName.length);
-  //     console.log(fileName);
-  //     console.log(`ext: ${ext}`);
-  //     if (ext.toLowerCase() === "png" || ext.toLowerCase() === "jpg") {
-  //       console.log("png or jpg")
-  //       setValidFlag(true);
-  //       setImgName(fileName);
-  //       return true
-  //     }
-  //     else {
-  //       setValidFlag(false);
-  //       notify("Invalid file type")
-  //       return false || "Invalid file type"
-  //     }
-  //   }
-  //   if (imgName !== '') {
-  //     return true;
-  //   }
-  //   return false;
-  // }
+
 
   const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -253,6 +271,25 @@ const Dash = (props) => {
     });
   };
 
+  const Loading = () => {
+    return (<div class="loader"></div>);
+  }
+
+  const Ready = () => {
+    return (
+      <div class="graph">
+        <BarGraph category="Clipping" type={grade.clipping}></BarGraph>
+        <BarGraph category="Color Temp" type={grade.color_temp}></BarGraph>
+        <BarGraph category="Colorfulness" type={grade.colorfulness}></BarGraph>
+        <BarGraph category="Contrast" type={grade.contrast}></BarGraph>
+        <BarGraph category="Saturation" type={grade.saturation}></BarGraph>
+        <BarGraph category="Sharpness" type={grade.sharpness}></BarGraph>
+        <h1 class="cat">Face: {grade.face}</h1>
+        <h1 class="cat">ML Grade: 0.{Math.round((grade.ml_score_percentile))} percentile</h1>
+      </div>
+    );
+  }
+
   return (
     <motion.div className={classes.frame} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
       <div className={classes.uploadContainer}>
@@ -271,15 +308,35 @@ const Dash = (props) => {
           </div>
           <img class='img-display' src={baseImage} alt='' />
         </div>
-        <Button
-          type="submit"
-          fullWidth variant="contained"
-          color="primary"
-          className={classes.btn}
-          form='upload-form'
+        <Popup
+          trigger={<Button
+            type="submit"
+            fullWidth variant="contained"
+            color="primary"
+            className={classes.btn}
+            form='upload-form'
+          >
+            Audit Image
+          </Button>}
+          modal
         >
-          Audit Image
-          </Button>
+          {!respFlag &&
+            <div class="loader-container"><div class="loader"></div></div>
+          }
+          {respFlag &&
+            <div class="graph">
+              <BarGraph category="Clipping" type={grade.clipping}></BarGraph>
+              <BarGraph category="Color Temp" type={grade.color_temp}></BarGraph>
+              <BarGraph category="Colorfulness" type={grade.colorfulness}></BarGraph>
+              <BarGraph category="Contrast" type={grade.contrast}></BarGraph>
+              <BarGraph category="Saturation" type={grade.saturation}></BarGraph>
+              <BarGraph category="Sharpness" type={grade.sharpness}></BarGraph>
+              <h1 class="cat">Face: {grade.face}</h1>
+              <h1 class="cat">ML Grade: 0.{Math.round((grade.ml_score_percentile))} percentile</h1>
+            </div>
+          }
+        </Popup>
+
         <Button
           className={classes.btn}
           color="primary"

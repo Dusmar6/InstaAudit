@@ -106,14 +106,14 @@ export const App = (props) => {
               <Route path='/' exact strict>
                 <LandingPage></LandingPage>
               </Route>
-              <Route path='/support' exact strict>
-                <LandingPage></LandingPage>
-              </Route>
               <Route path='/how-it-works' exact strict>
                 <HowItWorks></HowItWorks>
               </Route>
               <Route path='/about' exact strict>
                 <HowItWorks></HowItWorks>
+              </Route>
+              <Route path='/support' exact strict>
+                <h1>404: No support for you</h1>
               </Route>
               <Route path='/technologies-used' exact strict>
                 <TechnologiesUsed></TechnologiesUsed>
